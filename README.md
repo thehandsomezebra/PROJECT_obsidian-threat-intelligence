@@ -1,7 +1,10 @@
 # Threat Intelligence JSON to Obsidian Converter
 
 
-[![youtube video](https://img.youtube.com/vi/Mfx4iUpdxJ4/0.jpg)](https://www.youtube.com/watch?v=Mfx4iUpdxJ4)
+[![Click to watch the youtube video](https://img.youtube.com/vi/Mfx4iUpdxJ4/0.jpg)](https://www.youtube.com/watch?v=Mfx4iUpdxJ4)
+^^ Click to watch a demonstration of the output.
+
+
 
 This project provides a simple and effective way to convert threat intelligence data, sourced from ETDA Thailand, into a structured and interlinked Obsidian vault. It uses Python and Docker to process JSON files into individual Markdown notes, complete with metadata and links, perfect for threat intelligence research and analysis.
 

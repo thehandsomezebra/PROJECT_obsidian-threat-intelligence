@@ -94,6 +94,11 @@ jobs:
             unzip -q old_vault.zip -d old_vault_unzipped
             unzip -q ${{ steps.zip.outputs.name }} -d new_vault_unzipped
             
+            # Remove the 'data-scraped' line from all .md files before diffing
+            echo "Temporarily removing 'data-scraped' lines for accurate diff..."
+            find old_vault_unzipped -type f -name "*.md" -exec sed -i '/^data-scraped:/d' {} +
+            find new_vault_unzipped -type f -name "*.md" -exec sed -i '/^data-scraped:/d' {} +
+            
             # Generate the diff, ignoring the .obsidian config folder and ignoring case.
             # Use '|| true' to ensure the workflow doesn't fail if diff finds changes (which is expected).
             DIFF_CONTENT=$(diff -urN -x ".obsidian" old_vault_unzipped/output new_vault_unzipped/output || true)

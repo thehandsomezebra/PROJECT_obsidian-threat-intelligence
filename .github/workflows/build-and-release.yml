@@ -17,6 +17,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Add permissions for the job to create a release
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository

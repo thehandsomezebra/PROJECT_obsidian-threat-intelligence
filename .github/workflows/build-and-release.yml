@@ -1,0 +1,79 @@
+# .github/workflows/build-and-release.yml
+
+name: Build and Release Obsidian Vault
+
+on:
+  # Allows you to run this workflow manually from the Actions tab on GitHub
+  workflow_dispatch:
+
+  # Runs on a schedule (this is set to every Sunday at 3 AM UTC)
+  schedule:
+    - cron: '0 3 * * 0'
+
+  # Also runs on pushes to the main branch (useful for testing your changes)
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Create input directory
+        run: mkdir -p inputs
+
+      - name: Download latest threat intelligence data
+        run: |
+          curl -L -o "inputs/Threat Group Card - All groups.json" "https://apt.etda.or.th/cgi-bin/getcard.cgi?g=all&o=j"
+          curl -L -o "inputs/Threat Group Card - All tools.json" "https://apt.etda.or.th/cgi-bin/getcard.cgi?t=all&o=j"
+        
+      - name: Verify downloaded files
+        run: |
+          echo "--- Verifying downloaded files ---"
+          ls -lh inputs
+          echo "--- Groups file head ---"
+          head -n 10 "inputs/Threat Group Card - All groups.json"
+          echo "--- Tools file head ---"
+          head -n 10 "inputs/Threat Group Card - All tools.json"
+
+      - name: Run Python script to generate markdown vault
+        run: python main.py
+
+      - name: Get current date for release name
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      
+      - name: Zip the output folder for release
+        run: zip -r obsidian-vault-${{ steps.date.outputs.date }}.zip ./output
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          # The name of the tag will be unique, e.g., v2024-10-27
+          tag_name: v${{ steps.date.outputs.date }}
+          # The name of the release in the GitHub UI
+          name: Obsidian Vault Build - ${{ steps.date.outputs.date }}
+          # The description for the release
+          body: |
+            Automated weekly build of the Threat Intelligence Obsidian Vault.
+            Data sourced from ETDA Threat Group Cards on ${{ steps.date.outputs.date }}.
+          # The files to upload as assets to the release
+          files: |
+            obsidian-vault-${{ steps.date.outputs.date }}.zip
+        env:
+          # This token is provided by GitHub Actions automatically and is required
+          # for the action to create a release on your behalf.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

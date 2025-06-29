@@ -5,212 +5,132 @@ from datetime import datetime
 
 def sanitize_filename(name):
     """Sanitizes a string to be used as a valid filename."""
-    # First, remove square brackets which are problematic for wikilinks
+    if not isinstance(name, str):
+        name = str(name)
     name = name.replace('[', '').replace(']', '')
-    # Then, remove other characters that are invalid in filenames
     return re.sub(r'[\\/*?:"<>|]', '_', name)
 
 def wikify_text(text):
     """Converts {{...}} syntax to [[...]] wikilinks for Obsidian."""
     if not isinstance(text, str):
         return text
-    # This regex finds {{text}} and converts it to [[text]]
     return re.sub(r'\{\{([^}]+)\}\}', r'[[\1]]', text)
 
-def process_tools_file(tools_data, output_dir, all_tools, scraped_date):
+def write_field(file_handle, key, value):
+    """Intelligently writes a key-value pair to the markdown file."""
+    if not value:
+        return # Don't write empty fields
+
+    # Capitalize and format the header
+    header = key.replace('-', ' ').replace('_', ' ').title()
+    file_handle.write(f"## {header}\n")
+
+    if isinstance(value, list):
+        if all(isinstance(i, str) for i in value):
+            # Create wikilinks for specific keys that represent other pages
+            if key in ['country', 'observed-countries', 'observed-sectors', 'tools']:
+                 for item in value:
+                    file_handle.write(f"- [[{sanitize_filename(item)}]]\n")
+            else:
+                for item in value:
+                    file_handle.write(f"- {wikify_text(item)}\n")
+
+        elif all(isinstance(i, dict) for i in value):
+            # Handle specific list of objects that need custom formatting
+            if key in ['operations', 'counter-operations', 'activity']:
+                for item in value:
+                    date = item.get('date', 'N/A')
+                    activity_text = item.get('activity', '')
+                    file_handle.write(f"- **{date}:** {wikify_text(activity_text)}\n")
+            # Handle other list of objects as a table (like 'names')
+            else:
+                if not value: return
+                headers = sorted(value[0].keys())
+                file_handle.write(f"| {' | '.join(h.title() for h in headers)} |\n")
+                file_handle.write(f"|{'---|' * len(headers)}\n")
+                for item in value:
+                    row = [wikify_text(str(item.get(h, ''))) for h in headers]
+                    file_handle.write(f"| {' | '.join(row)} |\n")
+    else:
+        file_handle.write(f"{wikify_text(str(value))}\n")
+    
+    file_handle.write("\n")
+
+
+def process_record(record, output_dir, record_type, all_sets, scraped_date):
     """
-    Process the tools JSON data and create markdown files with Obsidian metadata.
+    Generic function to process a single record (a tool or a group).
     """
-    print("Processing tools file...")
-    for tool in tools_data.get('values', []):
-        tool_name = tool.get('tool', 'Unnamed Tool')
-        safe_tool_name = sanitize_filename(tool_name)
-        all_tools.add(safe_tool_name)
-        file_path = os.path.join(output_dir, f"{safe_tool_name}.md")
+    # Identify the main name and prepare file paths
+    main_name_key = "actor" if record_type == "group" else "tool"
+    main_name = record.get(main_name_key, f"Unnamed {record_type}")
+    safe_filename = sanitize_filename(main_name)
+    file_path = os.path.join(output_dir, f"{safe_filename}.md")
+    
+    # Add to the global set for indexing
+    all_sets[f"all_{record_type}s"].add(safe_filename)
+
+    # Collect linked entities for indexing
+    if record_type == "group":
+        for sector in record.get('observed-sectors', []): all_sets['all_sectors'].add(sector)
+        for country in record.get('observed-countries', []): all_sets['all_countries'].add(country)
+        for country in record.get('country', []): all_sets['all_countries'].add(country)
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        # --- Write YAML Frontmatter ---
+        f.write('---\n')
+        f.write(f'title: "{main_name}"\n')
+        f.write(f'data-scraped: {scraped_date}\n')
+        f.write(f'type: {record_type}\n')
         
-        with open(file_path, 'w', encoding='utf-8') as f:
-            # --- YAML Frontmatter ---
-            f.write('---\n')
-            f.write(f'title: "{tool_name}"\n')
-            f.write(f'data-scraped: {scraped_date}\n')
-            f.write('type: tool\n')
-            
-            # Create aliases from the names list, excluding the main tool name
-            aliases = [name.get('name') for name in tool.get('names', []) if name.get('name') and name.get('name') != tool_name]
-            if aliases:
-                f.write('aliases:\n')
-                for alias in aliases:
-                    f.write(f'  - "{alias}"\n') # Quote aliases to handle special characters
-            f.write('---\n\n')
+        # Handle aliases metadata
+        aliases = [name.get('name') for name in record.get('names', []) if name.get('name') and name.get('name') != main_name]
+        if aliases:
+            f.write('aliases:\n')
+            for alias in aliases: f.write(f'  - "{alias}"\n')
+        
+        # Handle country metadata
+        if 'country' in record and record['country']:
+            f.write('country:\n')
+            for item in record['country']:
+                 f.write(f'  - "[[{sanitize_filename(item)}]]"\n')
+        
+        f.write('---\n\n')
 
-            # --- Main Content ---
-            f.write(f"# {tool_name}\n\n")
+        # --- Write Main Content ---
+        f.write(f"# {main_name}\n\n")
 
-            if tool.get('names'):
-                f.write("## Names\n")
-                for name in tool.get('names', []):
-                    f.write(f"- {name.get('name', '')}\n")
-                f.write("\n")
+        # Define the order of keys for consistent output
+        preferred_order = [
+            'description', 'names', 'country', 'sponsor', 'motivation', 'first-seen', 'category', 'type',
+            'observed-sectors', 'observed-countries', 'tools', 'operations', 'activity', 
+            'counter-operations', 'information', 'mitre-attack', 'malpedia', 'alienvault-otx', 'playbook'
+        ]
+        
+        processed_keys = {main_name_key} # Keep track of keys we've handled
 
-            if tool.get('description'):
-                f.write("## Description\n")
-                f.write(f"{wikify_text(tool.get('description'))}\n\n")
-
-            if tool.get('category'):
-                f.write(f"**Category:** {tool.get('category')}\n\n")
-
-            if tool.get('type'):
-                f.write("## Type\n")
-                for t in tool.get('type', []):
-                    f.write(f"- {t}\n")
-                f.write("\n")
-
-            if tool.get('information'):
-                f.write("## Information\n")
-                for info in tool.get('information', []):
-                    f.write(f"- {wikify_text(info)}\n")
-                f.write("\n")
-
-            if tool.get('mitre-attack'):
-                f.write("## MITRE ATT&CK\n")
-                for attack in tool.get('mitre-attack', []):
-                    f.write(f"- {attack}\n")
-                f.write("\n")
-
-            if tool.get('malpedia'):
-                f.write("## Malpedia\n")
-                for mal in tool.get('malpedia', []):
-                    f.write(f"- {mal}\n")
-                f.write("\n")
-
-            if tool.get('alienvault-otx'):
-                f.write("## AlienVault OTX\n")
-                for otx in tool.get('alienvault-otx', []):
-                    f.write(f"- {otx}\n")
-                f.write("\n")
-
-def process_groups_file(groups_data, output_dir, all_groups, all_sectors, all_countries, all_tools, scraped_date):
-    """
-    Process the groups JSON data and create markdown files with Obsidian metadata.
-    """
-    print("Processing groups file...")
-    for group in groups_data.get('values', []):
-        actor_name = group.get('actor', 'Unnamed Group')
-        safe_actor_name = sanitize_filename(actor_name)
-        all_groups.add(safe_actor_name)
-        file_path = os.path.join(output_dir, f"{safe_actor_name}.md")
-
-        # Collect sectors and countries for this group
-        sectors = group.get('observed-sectors', [])
-        countries = group.get('country', [])
-        for sector in sectors:
-            all_sectors.add(sector)
-        for country in countries:
-            all_countries.add(country)
-
-        with open(file_path, 'w', encoding='utf-8') as f:
-            # --- YAML Frontmatter ---
-            f.write('---\n')
-            f.write(f'title: "{actor_name}"\n')
-            f.write(f'data-scraped: {scraped_date}\n')
-            f.write('type: group\n')
-
-            aliases = [name.get('name') for name in group.get('names', []) if name.get('name') and name.get('name') != actor_name]
-            if aliases:
-                f.write('aliases:\n')
-                for alias in aliases:
-                    f.write(f'  - "{alias}"\n') # Use quotes for aliases to be safe
-            
-            if sectors:
-                f.write('observed-sectors:\n')
-                for sector in sectors:
-                    f.write(f'  - "[[{sanitize_filename(sector)}]]"\n')
-            
-            if countries:
-                f.write('observed-countries:\n')
-                for country in countries:
-                    f.write(f'  - "[[{sanitize_filename(country)}]]"\n')
-
-            f.write('---\n\n')
-            
-            # --- Main Content ---
-            f.write(f"# {actor_name}\n\n")
-
-            if group.get('description'):
-                f.write("## Description\n")
-                f.write(f"{wikify_text(group.get('description'))}\n\n")
-
-            if group.get('names'):
-                f.write("## Names\n")
-                f.write("| Name | Name Giver |\n")
-                f.write("|---|---|\n")
-                for name in group.get('names', []):
-                    f.write(f"| {name.get('name', '')} | {name.get('name-giver', '')} |\n")
-                f.write("\n")
-            
-            if sectors:
-                f.write("## Observed Sectors\n")
-                for sector in sectors:
-                    f.write(f"- [[{sanitize_filename(sector)}]]\n")
-                f.write("\n")
-
-            if countries:
-                f.write("## Observed Countries\n")
-                for country in countries:
-                    f.write(f"- [[{sanitize_filename(country)}]]\n")
-                f.write("\n")
-
-            if group.get('tools'):
-                f.write("## Tools\n")
-                for tool in group.get('tools', []):
-                    f.write(f"- [[{sanitize_filename(tool)}]]\n")
-                f.write("\n")
-
-            if group.get('mitre-attack'):
-                f.write("## MITRE ATT&CK\n")
-                for attack in group.get('mitre-attack', []):
-                    f.write(f"- {attack}\n")
-                f.write("\n")
-            
-            if group.get('malpedia'):
-                f.write("## Malpedia\n")
-                for mal in group.get('malpedia', []):
-                    f.write(f"- {mal}\n")
-                f.write("\n")
-
-            if group.get('alienvault-otx'):
-                f.write("## AlienVault OTX\n")
-                for otx in group.get('alienvault-otx', []):
-                    f.write(f"- {otx}\n")
-                f.write("\n")
-
-            if group.get('activity'):
-                f.write("## Activity\n")
-                for act in group.get('activity', []):
-                    f.write(f"- **{act.get('date', 'N/A')}:** {wikify_text(act.get('activity', ''))}\n")
-                f.write("\n")
-
-            if group.get('counter-operations'):
-                f.write("## Counter Operations\n")
-                for op in group.get('counter-operations', []):
-                    f.write(f"- **{op.get('date', 'N/A')}:** {wikify_text(op.get('activity', ''))}\n")
-                f.write("\n")
-            
-            if group.get('information'):
-                f.write("## Information & Links\n")
-                for info in group.get('information', []):
-                    f.write(f"- {wikify_text(info)}\n")
-                f.write("\n")
+        for key in preferred_order:
+            if key in record:
+                write_field(f, key, record[key])
+                processed_keys.add(key)
+        
+        # Process any remaining keys not in the preferred order
+        other_info_header_written = False
+        for key, value in record.items():
+            if key not in processed_keys and value:
+                if not other_info_header_written:
+                    f.write("## Other Information\n")
+                    other_info_header_written = True
+                write_field(f, key, value)
 
 def create_index_file(output_dir, title, items):
     """Creates an index markdown file with a list of links."""
     file_path = os.path.join(output_dir, f"{sanitize_filename(title)}.md")
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(f"# {title}\n\n")
-        for item in sorted(items):
-            f.write(f"- [[{item}]]\n")
+        for item in sorted(items): f.write(f"- [[{sanitize_filename(item)}]]\n")
 
-def create_placeholder_pages(output_dir, items, item_type):
+def create_placeholder_pages(output_dir, items, item_type, scraped_date):
     """Creates placeholder pages for items like sectors or countries."""
     for item in items:
         safe_name = sanitize_filename(item)
@@ -218,93 +138,70 @@ def create_placeholder_pages(output_dir, items, item_type):
         if not os.path.exists(file_path):
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write('---\n')
+                f.write(f'title: "{item}"\n')
+                f.write(f'data-scraped: {scraped_date}\n')
                 f.write(f'type: {item_type}\n')
                 f.write('---\n\n')
                 f.write(f'# {item}\n\n')
                 f.write(f'A page for the {item_type} [[{item}]].\n')
 
-
 def handle_malformed_json(file_path):
-    """
-    Tries to repair and load a malformed JSON file by fixing common errors
-    like unquoted URLs and file truncation.
-    """
+    """Tries to repair and load a malformed JSON file."""
     print(f"Attempting to repair and parse malformed JSON from '{file_path}'...")
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-
-        # Step 1: Find lines that look like unquoted URLs and wrap them in quotes.
-        url_pattern = re.compile(r'^(\s*)(https?://[^\s"]+)\s*$', re.MULTILINE)
-        content_with_quoted_urls = url_pattern.sub(r'\1"\2",', content)
-        
-        # Step 2: Clean up trailing commas that might have been added or already existed.
+        url_pattern = re.compile(r'^(\s*)(https?://[^\s",]+)\s*$', re.MULTILINE)
+        content = url_pattern.sub(r'\1"\2",', content)
         trailing_comma_pattern = re.compile(r',\s*([\]\}])', re.MULTILINE)
-        repaired_content = trailing_comma_pattern.sub(r'\1', content_with_quoted_urls)
-        
-        data = json.loads(repaired_content)
+        content = trailing_comma_pattern.sub(r'\1', content)
+        data = json.loads(content)
         print("Successfully parsed repaired JSON.")
         return data
-
-    except json.JSONDecodeError as e:
-        print(f"Parsing after regex repair failed: {e}. All repair attempts failed.")
-        return None
-    except Exception as repair_error:
-        print(f"An unexpected error occurred during the repair process. Error: {repair_error}")
+    except Exception as e:
+        print(f"Failed to repair and parse JSON. Error: {e}")
         return None
 
 def main():
-    """
-    Main function to load JSON files and initiate processing.
-    """
-    input_dir = 'inputs'
-    output_dir = 'output'
-    tools_file_path = os.path.join(input_dir, 'Threat Group Card - All tools.json')
-    groups_file_path = os.path.join(input_dir, 'Threat Group Card - All groups.json')
+    """Main function to load JSON files and initiate processing."""
+    input_dir, output_dir = 'inputs', 'output'
     scraped_date = datetime.now().strftime('%Y-%m-%d')
+    if not os.path.exists(output_dir): os.makedirs(output_dir)
 
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    all_sets = {
+        "all_tools": set(), "all_groups": set(), 
+        "all_sectors": set(), "all_countries": set()
+    }
 
-    all_tools, all_groups, all_sectors, all_countries = set(), set(), set(), set()
+    file_configs = [
+        {"path": os.path.join(input_dir, 'Threat Group Card - All tools.json'), "type": "tool"},
+        {"path": os.path.join(input_dir, 'Threat Group Card - All groups.json'), "type": "group"}
+    ]
 
-    # Load and process the tools file
-    print(f"--- Processing Tools ---")
-    try:
-        with open(tools_file_path, 'r', encoding='utf-8') as f:
-            tools_data = json.load(f)
-        process_tools_file(tools_data, output_dir, all_tools, scraped_date)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Initial processing failed: {e}. Attempting repair...")
-        tools_data = handle_malformed_json(tools_file_path)
-        if tools_data:
-            process_tools_file(tools_data, output_dir, all_tools, scraped_date)
+    for config in file_configs:
+        print(f"\n--- Processing {config['type'].title()}s ---")
+        data = None
+        try:
+            with open(config['path'], 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Initial processing failed: {e}. Attempting repair...")
+            data = handle_malformed_json(config['path'])
+        
+        if data:
+            for record in data.get('values', []):
+                process_record(record, output_dir, config['type'], all_sets, scraped_date)
         else:
-            print(f"Could not process '{tools_file_path}'.")
+            print(f"Could not process '{config['path']}'.")
 
-    # Load and process the groups file
-    print(f"\n--- Processing Groups ---")
-    try:
-        with open(groups_file_path, 'r', encoding='utf-8') as f:
-            groups_data = json.load(f)
-        process_groups_file(groups_data, output_dir, all_groups, all_sectors, all_countries, all_tools, scraped_date)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Initial processing failed: {e}. Attempting repair...")
-        groups_data = handle_malformed_json(groups_file_path)
-        if groups_data:
-            process_groups_file(groups_data, output_dir, all_groups, all_sectors, all_countries, all_tools, scraped_date)
-        else:
-            print(f"Could not process '{groups_file_path}'.")
-    
-    # Create placeholder pages and index files
     print("\n--- Finalizing Database ---")
-    create_placeholder_pages(output_dir, all_sectors, 'sector')
-    create_placeholder_pages(output_dir, all_countries, 'country')
+    create_placeholder_pages(output_dir, all_sets['all_sectors'], 'sector', scraped_date)
+    create_placeholder_pages(output_dir, all_sets['all_countries'], 'country', scraped_date)
     
-    create_index_file(output_dir, 'index-tools', all_tools)
-    create_index_file(output_dir, 'index-groups', all_groups)
-    create_index_file(output_dir, 'index-sectors', all_sectors)
-    create_index_file(output_dir, 'index-countries', all_countries)
+    create_index_file(output_dir, 'index-tools', all_sets['all_tools'])
+    create_index_file(output_dir, 'index-groups', all_sets['all_groups'])
+    create_index_file(output_dir, 'index-sectors', all_sets['all_sectors'])
+    create_index_file(output_dir, 'index-countries', all_sets['all_countries'])
 
     print("\nScript finished.")
 

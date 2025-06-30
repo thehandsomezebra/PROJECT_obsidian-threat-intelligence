@@ -73,7 +73,7 @@ jobs:
       - name: Create CNAME file
         run: |
           echo "Creating CNAME file for custom domain..."
-          echo "threatactors.garden.handsomezebra.com" > docs/CNAME
+          echo "threatintelligence.garden.handsomezebra.com" > docs/CNAME
 
       - name: Commit and Push all changes
         run: |

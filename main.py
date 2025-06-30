@@ -136,6 +136,28 @@ def create_placeholder_pages(output_dir, items, item_type, scraped_date):
                 f.write(f'# {clean_item_name}\n\n')
                 f.write(f'A page for the {item_type} [[{clean_item_name}]].\n')
 
+def create_landing_page(output_dir, scraped_date):
+    """Creates the main index.md landing page for the vault."""
+    file_path = os.path.join(output_dir, "index.md")
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write('---\n')
+        f.write('title: "Threat Intelligence Database"\n')
+        f.write(f'data-scraped: {scraped_date}\n')
+        f.write('---\n\n')
+        f.write('# Threat Intelligence Database\n\n')
+        f.write(f'*This database was last updated on {scraped_date}.*\n\n')
+        f.write("All pages on this site are auto-generated from open-source threat intelligence data. ")
+        f.write("This site is a browsable version of the threat intelligence data compiled from the **Threat Group Cards: A Threat Actor Encyclopedia** provided by the Electronic Transactions Development Agency (ETDA) of Thailand. \n\n")
+        f.write("Use the links and the search bar to explore connections between threat groups, tools, and targeted regions. Every entity is its own page, and links between them show their relationships.\n\n")
+        f.write('## Table of Contents\n\n')
+        f.write("- [[index-groups|All Threat Groups]]\n")
+        f.write("- [[index-tools|All Tools]]\n")
+        f.write("- [[index-countries|All Countries]]\n")
+        f.write("- [[index-sectors|All Sectors]]\n")
+        f.write('\n\n---\n\n')
+        f.write("This site is created by [The Handsome Zebra](https://handsomezebra.com/) and it is hosted on GitHub pages. If this project helps you in any way, please consider [sponsoring this GitHub project](https://github.com/thehandsomezebra/PROJECT_obsidian-threat-intelligence/tree/master) via [ko-fi](https://ko-fi.com/handsomezebra).\n")
+
+
 def handle_malformed_json(file_path):
     """Tries to repair and load a malformed JSON file."""
     print(f"Attempting to repair and parse malformed JSON from '{file_path}'...")
@@ -186,6 +208,7 @@ def main():
             print(f"Could not process '{config['path']}'.")
 
     print("\n--- Finalizing Database ---")
+    create_landing_page(output_dir, scraped_date)
     create_placeholder_pages(output_dir, all_sets['all_sectors'], 'sector', scraped_date)
     create_placeholder_pages(output_dir, all_sets['all_countries'], 'country', scraped_date)
     

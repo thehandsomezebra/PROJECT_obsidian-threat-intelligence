@@ -1,0 +1,82 @@
+# .github/workflows/deploy-quartz.yml
+
+name: Deploy Quartz Website to Branch
+
+on:
+  # This workflow runs automatically whenever a new Release is published
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write # Needs write permission to push to a branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: "web-deploy"
+      cancel-in-progress: true
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        # We need to fetch all history for Quartz to work correctly
+        with:
+          fetch-depth: 0
+      
+      - name: Get latest release asset URL
+        id: get-release
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Use the GitHub CLI to find the URL of the vault zip from the triggering release
+          ASSET_URL=$(gh release view "${{ github.event.release.tag_name }}" --json assets --jq '.assets[] | select(.name | endswith(".zip")) | .url')
+          echo "ASSET_URL=$ASSET_URL" >> $GITHUB_ENV
+
+      - name: Download and Unzip Vault
+        run: |
+          # Download the vault from the release
+          curl -L -o vault.zip "${{ env.ASSET_URL }}"
+          
+          # Create a directory for the content
+          mkdir -p content
+          
+          # Unzip the vault contents directly into the 'content' directory
+          unzip vault.zip -d .
+          # Move the unzipped markdown files into the 'content' directory for Quartz
+          mv output/* content/
+          
+          echo "Vault content prepared:"
+          ls -R content
+
+      - name: Setup Quartz
+        run: |
+          # This assumes you will have a quartz folder in your repo with your site's configuration
+          # For now, we'll clone the starter template as a placeholder
+          git clone https://github.com/jackyzha0/quartz.git
+          # We'll copy our vault content into the quartz content folder
+          cp -r content/* quartz/content/
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm --prefix quartz install
+        
+      - name: Build Quartz Website
+        run: npx --prefix quartz quartz build
+
+      - name: Deploy to 'web' branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The directory the action should deploy from
+          publish_dir: ./quartz/public
+          # The branch the action should deploy to
+          publish_branch: web
+          # A commit message for the deployment
+          commit_message: "Deploy Quartz site from release ${{ github.event.release.tag_name }}"

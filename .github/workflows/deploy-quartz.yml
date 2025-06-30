@@ -64,16 +64,11 @@ jobs:
         
       - name: Build Quartz Website
         run: |
-          cd ./quartz
-          npx quartz build
-
-      - name: Prepare site for deployment
-        run: |
-          # Clean out old deployment folder and move the new build into place
-          # This is served by GitHub Pages from the /docs folder on the 'web' branch
-          echo "Preparing /docs folder for deployment..."
+          echo "Preparing for new build by removing old /docs folder..."
           rm -rf docs
-          mv quartz/public docs
+          echo "Building Quartz site directly into /docs folder..."
+          cd ./quartz
+          npx quartz build --output ../docs
 
       - name: Commit and Push all changes
         run: |

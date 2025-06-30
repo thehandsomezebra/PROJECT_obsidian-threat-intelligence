@@ -74,8 +74,8 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # Add both the updated source content and the newly built site
-          git add quartz/content docs
+          # Add just the newly built site
+          git add docs
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else

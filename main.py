@@ -3,12 +3,18 @@ import json
 import re
 from datetime import datetime
 
-def sanitize_filename(name):
-    """Sanitizes a string to be used as a valid filename."""
+def normalize_name(name):
+    """Removes surrounding square brackets from a name to ensure consistency."""
     if not isinstance(name, str):
-        name = str(name)
-    name = name.replace('[', '').replace(']', '')
-    return re.sub(r'[\\/*?:"<>|]', '_', name)
+        return str(name)
+    # This removes all square brackets from the string.
+    return name.replace('[', '').replace(']', '')
+
+def sanitize_for_filename(name):
+    """Sanitizes a string to be used as a valid filename."""
+    # First, normalize the name to remove brackets, then sanitize for the filesystem.
+    clean_name = normalize_name(name)
+    return re.sub(r'[\\/*?:"<>|]', '_', clean_name)
 
 def wikify_text(text):
     """Converts {{...}} syntax to [[...]] wikilinks for Obsidian."""
@@ -21,28 +27,25 @@ def write_field(file_handle, key, value):
     if not value:
         return # Don't write empty fields
 
-    # Capitalize and format the header
     header = key.replace('-', ' ').replace('_', ' ').title()
     file_handle.write(f"## {header}\n")
 
     if isinstance(value, list):
         if all(isinstance(i, str) for i in value):
-            # Create wikilinks for specific keys that represent other pages
             if key in ['country', 'observed-countries', 'observed-sectors', 'tools']:
                  for item in value:
-                    file_handle.write(f"- [[{sanitize_filename(item)}]]\n")
+                    # Use the sanitized (and normalized) name for the link
+                    file_handle.write(f"- [[{sanitize_for_filename(item)}]]\n")
             else:
                 for item in value:
                     file_handle.write(f"- {wikify_text(item)}\n")
 
         elif all(isinstance(i, dict) for i in value):
-            # Handle specific list of objects that need custom formatting
             if key in ['operations', 'counter-operations', 'activity']:
                 for item in value:
                     date = item.get('date', 'N/A')
                     activity_text = item.get('activity', '')
                     file_handle.write(f"- **{date}:** {wikify_text(activity_text)}\n")
-            # Handle other list of objects as a table (like 'names')
             else:
                 if not value: return
                 headers = sorted(value[0].keys())
@@ -58,63 +61,50 @@ def write_field(file_handle, key, value):
 
 
 def process_record(record, output_dir, record_type, all_sets, scraped_date):
-    """
-    Generic function to process a single record (a tool or a group).
-    """
-    # Identify the main name and prepare file paths
+    """Generic function to process a single record (a tool or a group)."""
     main_name_key = "actor" if record_type == "group" else "tool"
     main_name = record.get(main_name_key, f"Unnamed {record_type}")
-    safe_filename = sanitize_filename(main_name)
+    safe_filename = sanitize_for_filename(main_name)
     file_path = os.path.join(output_dir, f"{safe_filename}.md")
     
-    # Add to the global set for indexing
     all_sets[f"all_{record_type}s"].add(safe_filename)
 
-    # Collect linked entities for indexing
     if record_type == "group":
-        for sector in record.get('observed-sectors', []): all_sets['all_sectors'].add(sector)
-        for country in record.get('observed-countries', []): all_sets['all_countries'].add(country)
-        for country in record.get('country', []): all_sets['all_countries'].add(country)
+        for sector in record.get('observed-sectors', []): all_sets['all_sectors'].add(normalize_name(sector))
+        for country in record.get('observed-countries', []): all_sets['all_countries'].add(normalize_name(country))
+        for country in record.get('country', []): all_sets['all_countries'].add(normalize_name(country))
 
     with open(file_path, 'w', encoding='utf-8') as f:
-        # --- Write YAML Frontmatter ---
         f.write('---\n')
-        f.write(f'title: "{main_name}"\n')
+        f.write(f'title: "{normalize_name(main_name)}"\n')
         f.write(f'data-scraped: {scraped_date}\n')
         f.write(f'type: {record_type}\n')
         
-        # Handle aliases metadata
         aliases = [name.get('name') for name in record.get('names', []) if name.get('name') and name.get('name') != main_name]
         if aliases:
             f.write('aliases:\n')
-            for alias in aliases: f.write(f'  - "{alias}"\n')
+            for alias in aliases: f.write(f'  - "{normalize_name(alias)}"\n')
         
-        # Handle country metadata
         if 'country' in record and record['country']:
             f.write('country:\n')
             for item in record['country']:
-                 f.write(f'  - "[[{sanitize_filename(item)}]]"\n')
+                 f.write(f'  - "[[{sanitize_for_filename(item)}]]"\n')
         
         f.write('---\n\n')
+        f.write(f"# {normalize_name(main_name)}\n\n")
 
-        # --- Write Main Content ---
-        f.write(f"# {main_name}\n\n")
-
-        # Define the order of keys for consistent output
         preferred_order = [
             'description', 'names', 'country', 'sponsor', 'motivation', 'first-seen', 'category', 'type',
             'observed-sectors', 'observed-countries', 'tools', 'operations', 'activity', 
             'counter-operations', 'information', 'mitre-attack', 'malpedia', 'alienvault-otx', 'playbook'
         ]
         
-        processed_keys = {main_name_key} # Keep track of keys we've handled
-
+        processed_keys = {main_name_key}
         for key in preferred_order:
             if key in record:
                 write_field(f, key, record[key])
                 processed_keys.add(key)
         
-        # Process any remaining keys not in the preferred order
         other_info_header_written = False
         for key, value in record.items():
             if key not in processed_keys and value:
@@ -125,25 +115,26 @@ def process_record(record, output_dir, record_type, all_sets, scraped_date):
 
 def create_index_file(output_dir, title, items):
     """Creates an index markdown file with a list of links."""
-    file_path = os.path.join(output_dir, f"{sanitize_filename(title)}.md")
+    file_path = os.path.join(output_dir, f"{sanitize_for_filename(title)}.md")
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(f"# {title}\n\n")
-        for item in sorted(items): f.write(f"- [[{sanitize_filename(item)}]]\n")
+        for item in sorted(items): f.write(f"- [[{sanitize_for_filename(item)}]]\n")
 
 def create_placeholder_pages(output_dir, items, item_type, scraped_date):
     """Creates placeholder pages for items like sectors or countries."""
     for item in items:
-        safe_name = sanitize_filename(item)
+        clean_item_name = normalize_name(item)
+        safe_name = sanitize_for_filename(clean_item_name)
         file_path = os.path.join(output_dir, f"{safe_name}.md")
         if not os.path.exists(file_path):
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write('---\n')
-                f.write(f'title: "{item}"\n')
+                f.write(f'title: "{clean_item_name}"\n')
                 f.write(f'data-scraped: {scraped_date}\n')
                 f.write(f'type: {item_type}\n')
                 f.write('---\n\n')
-                f.write(f'# {item}\n\n')
-                f.write(f'A page for the {item_type} [[{item}]].\n')
+                f.write(f'# {clean_item_name}\n\n')
+                f.write(f'A page for the {item_type} [[{clean_item_name}]].\n')
 
 def handle_malformed_json(file_path):
     """Tries to repair and load a malformed JSON file."""

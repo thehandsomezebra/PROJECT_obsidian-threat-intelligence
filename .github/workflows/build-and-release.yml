@@ -96,10 +96,13 @@ jobs:
             
             # Remove the 'data-scraped' line from all .md files before diffing
             echo "Temporarily removing 'data-scraped' lines for accurate diff..."
-            find old_vault_unzipped -type f -name "*.md" -exec sed -i '/^data-scraped:/d' {} +
-            find new_vault_unzipped -type f -name "*.md" -exec sed -i '/^data-scraped:/d' {} +
+            find old_vault_unzipped new_vault_unzipped -type f -name "*.md" -exec sed -i '/^data-scraped:/d' {} +
+
+            # Remove index files from comparison
+            echo "Removing index files from comparison..."
+            find old_vault_unzipped new_vault_unzipped -type f -name "index-*.md" -delete
             
-            # Generate the diff, ignoring the .obsidian config folder and ignoring case.
+            # Generate the diff, ignoring the .obsidian config folder.
             # Use '|| true' to ensure the workflow doesn't fail if diff finds changes (which is expected).
             DIFF_CONTENT=$(diff -urN -x ".obsidian" old_vault_unzipped/output new_vault_unzipped/output || true)
             

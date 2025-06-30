@@ -63,7 +63,9 @@ jobs:
         run: npm --prefix ./quartz install
         
       - name: Build Quartz Website
-        run: npx --prefix ./quartz quartz build
+        run: |
+          cd ./quartz
+          npx quartz build
 
       - name: Prepare site for deployment
         run: |

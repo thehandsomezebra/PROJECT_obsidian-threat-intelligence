@@ -1,2 +1,0 @@
-# This file is used to specify Python dependencies.
-# For now, it's empty, but we can add libraries like 'requests' or 'markdown' as needed.

@@ -85,6 +85,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Update content and build site from release ${{ github.event.release.tag_name }}"
-            git push origin web
+            git push origin web --force
             echo "Updated content and built site pushed to 'web' branch."
           fi

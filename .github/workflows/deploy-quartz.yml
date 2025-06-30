@@ -70,11 +70,16 @@ jobs:
           cd ./quartz
           npx quartz build --output ../docs
 
+      - name: Create CNAME file
+        run: |
+          echo "Creating CNAME file for custom domain..."
+          echo "threatactors.garden.handsomezebra.com" > docs/CNAME
+
       - name: Commit and Push all changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # Add just the newly built site
+          # Add only the built docs folder to the commit
           git add docs
           if git diff --staged --quiet; then
             echo "No changes to commit."

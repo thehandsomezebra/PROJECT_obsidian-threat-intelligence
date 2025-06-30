@@ -43,15 +43,15 @@ jobs:
           curl -L -o vault.zip "${{ env.ASSET_URL }}"
           echo "Downloaded latest release zip."
           
-          echo "Clearing and recreating content directory..."
-          rm -rf content
-          mkdir content
+          echo "Clearing and recreating Quartz content directory..."
+          rm -rf quartz/content
+          mkdir -p quartz/content
           
           unzip -q vault.zip -d temp_unzip
           echo "Moving new content into place..."
-          mv temp_unzip/output/* content/
+          mv temp_unzip/output/* quartz/content/
           rm -rf temp_unzip vault.zip
-          echo "New content successfully placed in 'content' directory."
+          echo "New content successfully placed in 'quartz/content' directory."
       
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -75,7 +75,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           # Add both the updated source content and the newly built site
-          git add content docs
+          git add quartz/content docs
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else

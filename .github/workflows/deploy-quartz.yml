@@ -1,6 +1,6 @@
-# .github/workflows/deploy-quartz.yml
+# .github/workflows/update-web-content.yml
 
-name: Deploy Quartz Website to Branch
+name: Sync Release Content to Web Branch
 
 on:
   # This workflow runs automatically whenever a new Release is published
@@ -12,71 +12,62 @@ on:
 
 permissions:
   contents: write # Needs write permission to push to a branch
+  pull-requests: read # Needed for gh cli to work
 
 jobs:
-  build-and-deploy:
+  sync-content:
     runs-on: ubuntu-latest
-    concurrency:
-      group: "web-deploy"
-      cancel-in-progress: true
     steps:
-      - name: Checkout Repository
+      - name: Checkout 'web' branch
         uses: actions/checkout@v4
-        # We need to fetch all history for Quartz to work correctly
         with:
-          fetch-depth: 0
-      
+          # Check out the specific branch we want to update
+          ref: 'web'
+
       - name: Get latest release asset URL
         id: get-release
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Use the GitHub CLI to find the URL of the vault zip from the triggering release
+          echo "Fetching release asset from tag: ${{ github.event.release.tag_name }}"
           ASSET_URL=$(gh release view "${{ github.event.release.tag_name }}" --json assets --jq '.assets[] | select(.name | endswith(".zip")) | .url')
           echo "ASSET_URL=$ASSET_URL" >> $GITHUB_ENV
+          echo "Found asset URL: $ASSET_URL"
 
-      - name: Download and Unzip Vault
+      - name: Download and Replace Content
         run: |
           # Download the vault from the release
           curl -L -o vault.zip "${{ env.ASSET_URL }}"
+          echo "Downloaded latest release zip."
           
-          # Create a directory for the content
-          mkdir -p content
+          # This assumes your quartz setup on the 'web' branch has a 'content' directory
+          echo "Clearing old content..."
+          rm -rf content/*
           
-          # Unzip the vault contents directly into the 'content' directory
-          unzip vault.zip -d .
-          # Move the unzipped markdown files into the 'content' directory for Quartz
-          mv output/* content/
+          # Unzip the new vault files directly into a temporary folder
+          unzip -q vault.zip -d temp_unzip
           
-          echo "Vault content prepared:"
+          # Move the contents of the 'output' folder from the zip into the 'content' directory
+          echo "Moving new content into place..."
+          mv temp_unzip/output/* content/
+          
+          # Clean up temporary files and folders
+          rm -rf temp_unzip vault.zip
+          
+          echo "New content successfully placed in 'content' directory."
           ls -R content
 
-      - name: Setup Quartz
+      - name: Commit and push changes
         run: |
-          # This assumes you will have a quartz folder in your repo with your site's configuration
-          # For now, we'll clone the starter template as a placeholder
-          git clone https://github.com/jackyzha0/quartz.git
-          # We'll copy our vault content into the quartz content folder
-          cp -r content/* quartz/content/
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm --prefix quartz install
-        
-      - name: Build Quartz Website
-        run: npx --prefix quartz quartz build
-
-      - name: Deploy to 'web' branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # The directory the action should deploy from
-          publish_dir: ./quartz/public
-          # The branch the action should deploy to
-          publish_branch: web
-          # A commit message for the deployment
-          commit_message: "Deploy Quartz site from release ${{ github.event.release.tag_name }}"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add content
+          # Check if there are changes to commit to avoid empty commits
+          if git diff --staged --quiet; then
+            echo "No content changes to commit."
+          else
+            git commit -m "Update content from release ${{ github.event.release.tag_name }}"
+            git push
+            echo "Content changes pushed to web branch."
+          fi

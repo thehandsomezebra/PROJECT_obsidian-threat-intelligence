@@ -1,6 +1,6 @@
 # .github/workflows/update-web-content.yml
 
-name: Sync Release Content to Web Branch
+name: Update and Deploy Quartz Site on 'web' branch
 
 on:
   # This workflow runs automatically whenever a new Release is published
@@ -11,17 +11,20 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write # Needs write permission to push to a branch
+  contents: write # Needs write permission to push to branches
   pull-requests: read # Needed for gh cli to work
 
 jobs:
-  sync-content:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    concurrency:
+      group: "web-deploy"
+      cancel-in-progress: true
     steps:
       - name: Checkout 'web' branch
         uses: actions/checkout@v4
         with:
-          # Check out the specific branch we want to update
+          # Check out the specific branch that holds the Quartz source and the deployed site
           ref: 'web'
 
       - name: Get latest release asset URL
@@ -37,37 +40,49 @@ jobs:
 
       - name: Download and Replace Content
         run: |
-          # Download the vault from the release
           curl -L -o vault.zip "${{ env.ASSET_URL }}"
           echo "Downloaded latest release zip."
           
-          # This assumes your quartz setup on the 'web' branch has a 'content' directory
-          echo "Clearing old content..."
-          rm -rf content/*
+          echo "Clearing and recreating content directory..."
+          rm -rf content
+          mkdir content
           
-          # Unzip the new vault files directly into a temporary folder
           unzip -q vault.zip -d temp_unzip
-          
-          # Move the contents of the 'output' folder from the zip into the 'content' directory
           echo "Moving new content into place..."
           mv temp_unzip/output/* content/
-          
-          # Clean up temporary files and folders
           rm -rf temp_unzip vault.zip
-          
           echo "New content successfully placed in 'content' directory."
-          ls -R content
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-      - name: Commit and push changes
+      - name: Install Quartz dependencies
+        # This assumes your package.json is in the 'quartz' sub-directory
+        run: npm --prefix ./quartz install
+        
+      - name: Build Quartz Website
+        run: npx --prefix ./quartz quartz build
+
+      - name: Prepare site for deployment
+        run: |
+          # Clean out old deployment folder and move the new build into place
+          # This is served by GitHub Pages from the /docs folder on the 'web' branch
+          echo "Preparing /docs folder for deployment..."
+          rm -rf docs
+          mv quartz/public docs
+
+      - name: Commit and Push all changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add content
-          # Check if there are changes to commit to avoid empty commits
+          # Add both the updated source content and the newly built site
+          git add content docs
           if git diff --staged --quiet; then
-            echo "No content changes to commit."
+            echo "No changes to commit."
           else
-            git commit -m "Update content from release ${{ github.event.release.tag_name }}"
-            git push
-            echo "Content changes pushed to web branch."
+            git commit -m "Update content and build site from release ${{ github.event.release.tag_name }}"
+            git push origin web
+            echo "Updated content and built site pushed to 'web' branch."
           fi

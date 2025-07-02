@@ -57,7 +57,7 @@ html[saved-theme="dark"][saved-theme="dark"] {
   --highlight: var(--text-highlight-bg);
   --hr-color: transparent;
   --code-background: var(--light-purple);
-  --graph-line: var(--text-faint);
+  --graph-line: var(--text-muted);
   --graph-node: var(--custom-teal);
   --graph-node-unresolved: var(--text-faint);
   --graph-node-current: var(--glow-magenta);
@@ -136,6 +136,73 @@ html[saved-theme="dark"][saved-theme="dark"] {
     :not(pre) > code {
       background-color: var(--light-purple);
     }
+    
+    // Explorer Sidebar Styles
+    .explorer-content {
+      // Style for the file/folder links
+      a {
+        padding: 0.2rem 0.5rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease-in-out;
+        
+        // Active and hover states for the rounded block
+        &.active, &:hover {
+          background-color: var(--light-purple);
+          color: var(--text-main);
+        }
+      }
+
+      // Add icons to files and folders
+      --file-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>');
+      --folder-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path></svg>');
+
+      .folder-container::before, .explorer-ul li > a::before {
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.5em;
+        background-color: var(--custom-teal);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+      }
+
+      .folder-container::before {
+        -webkit-mask-image: var(--folder-icon);
+        mask-image: var(--folder-icon);
+      }
+
+      .explorer-ul li > a::before {
+        -webkit-mask-image: var(--file-icon);
+        mask-image: var(--file-icon);
+      }
+    }
+    
+    // Graph View Styling
+    .graph {
+      & > .graph-outer {
+        border: 1px solid var(--light-purple);
+        background-color: var(--light-purple);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+
+        & > .global-graph-icon {
+          color: var(--text-muted);
+          &:hover {
+            background-color: var(--dark-purple);
+          }
+        }
+      }
+      & > .global-graph-outer {
+        & > .global-graph-container {
+          border: 1px solid var(--glow-magenta);
+          background-color: var(--kinda-black);
+        }
+      }
+    }
   }
 }
 
@@ -147,6 +214,7 @@ html[saved-theme="light"][saved-theme="light"] {
   --light-border-rgb: 222, 226, 230;
   --light-text-main-rgb: 33, 37, 41; // Near black
   --light-text-muted-rgb: 108, 117, 125; // Dark gray
+  --white: #ffffff;
 
   // Keep accent colors the same
   --custom-teal-rgb: 11, 206, 175;
@@ -242,5 +310,69 @@ html[saved-theme="light"][saved-theme="light"] {
     }
     pre { background-color: var(--light-secondary-bg); }
     :not(pre) > code { background-color: var(--light-border); }
+    
+    // Explorer Sidebar Styles for Light Mode
+    .explorer-content {
+      a {
+        padding: 0.2rem 0.5rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease-in-out;
+        
+        &.active, &:hover {
+          background-color: var(--light-border);
+          color: var(--light-text-main);
+        }
+      }
+
+      --file-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>');
+      --folder-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path></svg>');
+
+      .folder-container::before, .explorer-ul li > a::before {
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.5em;
+        background-color: var(--light-text-muted);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+      }
+
+      .folder-container::before {
+        -webkit-mask-image: var(--folder-icon);
+        mask-image: var(--folder-icon);
+      }
+
+      .explorer-ul li > a::before {
+        -webkit-mask-image: var(--file-icon);
+        mask-image: var(--file-icon);
+      }
+    }
+    
+    // Graph View Styling
+    .graph {
+      & > .graph-outer {
+        border: 1px solid var(--light-border);
+        background-color: var(--white); // UPDATED to white
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+
+        & > .global-graph-icon {
+          color: var(--light-text-muted);
+          &:hover {
+            background-color: var(--light-border);
+          }
+        }
+      }
+      & > .global-graph-outer {
+        & > .global-graph-container {
+          border: 1px solid var(--light-border);
+          background-color: var(--light-bg);
+        }
+      }
+    }
   }
 }

@@ -57,12 +57,12 @@ html[saved-theme="dark"][saved-theme="dark"] {
   --hr-color: transparent;
   --code-background: var(--light-purple);
   
-  // Graph colors - using direct values to fix JS error
-  --graph-line: rgb(var(--text-muted-rgb));
-  --graph-node: rgb(var(--custom-teal-rgb));
-  --graph-node-unresolved: rgb(var(--text-faint-rgb));
-  --graph-node-current: rgb(var(--glow-magenta-rgb));
-  --graph-node-tag: rgb(var(--glow-amber-rgb));
+  // Graph colors - using direct hex values to fix JS error on published site
+  --graph-line: #a0a0a0;
+  --graph-node: #0bceaf;
+  --graph-node-unresolved: #666666;
+  --graph-node-current: #f400a1;
+  --graph-node-tag: #ffc700;
   
   // Heading colors
   --h1-color: var(--custom-teal);
@@ -257,12 +257,12 @@ html[saved-theme="light"][saved-theme="light"] {
   --hr-color: transparent;
   --code-background: var(--light-secondary-bg);
   
-  // Graph colors - using direct values
-  --graph-line: rgb(var(--light-border-rgb));
-  --graph-node: rgb(var(--custom-teal-rgb));
-  --graph-node-unresolved: rgb(var(--light-text-muted-rgb));
-  --graph-node-current: rgb(var(--glow-magenta-rgb));
-  --graph-node-tag: rgb(var(--glow-amber-rgb));
+  // Graph colors - using direct hex values
+  --graph-line: #dee2e6;
+  --graph-node: #0bceaf;
+  --graph-node-unresolved: #6c757d;
+  --graph-node-current: #f400a1;
+  --graph-node-tag: #ffc700;
   
   // Heading colors
   --h1-color: var(--custom-teal);

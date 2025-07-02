@@ -358,7 +358,7 @@ html[saved-theme="light"][saved-theme="light"] {
     .graph {
       & > .graph-outer {
         border: 1px solid var(--light-border);
-        background-color: var(--white); // UPDATED to white
+        background-color: var(--light-secondary-bg);
         border-radius: 8px;
         padding: 1rem;
         margin-top: 1rem;

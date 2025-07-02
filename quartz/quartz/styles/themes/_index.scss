@@ -1,7 +1,6 @@
 // ---
 // Handsome Zebra Theme for Quartz
 // File: quartz/styles/themes/_index.scss
-// This file replaces the default theme (e.g., tokyo-night)
 // ---
 
 // Base imports, just like the default theme structure
@@ -57,11 +56,13 @@ html[saved-theme="dark"][saved-theme="dark"] {
   --highlight: var(--text-highlight-bg);
   --hr-color: transparent;
   --code-background: var(--light-purple);
-  --graph-line: var(--text-muted);
-  --graph-node: var(--custom-teal);
-  --graph-node-unresolved: var(--text-faint);
-  --graph-node-current: var(--glow-magenta);
-  --graph-node-tag: var(--glow-amber);
+  
+  // Graph colors - using direct values to fix JS error
+  --graph-line: rgb(var(--text-muted-rgb));
+  --graph-node: rgb(var(--custom-teal-rgb));
+  --graph-node-unresolved: rgb(var(--text-faint-rgb));
+  --graph-node-current: rgb(var(--glow-magenta-rgb));
+  --graph-node-tag: rgb(var(--glow-amber-rgb));
   
   // Heading colors
   --h1-color: var(--custom-teal);
@@ -255,11 +256,13 @@ html[saved-theme="light"][saved-theme="light"] {
   --highlight: var(--text-highlight-bg);
   --hr-color: transparent;
   --code-background: var(--light-secondary-bg);
-  --graph-line: var(--light-border);
-  --graph-node: var(--custom-teal);
-  --graph-node-unresolved: var(--light-text-muted);
-  --graph-node-current: var(--glow-magenta);
-  --graph-node-tag: var(--glow-amber);
+  
+  // Graph colors - using direct values
+  --graph-line: rgb(var(--light-border-rgb));
+  --graph-node: rgb(var(--custom-teal-rgb));
+  --graph-node-unresolved: rgb(var(--light-text-muted-rgb));
+  --graph-node-current: rgb(var(--glow-magenta-rgb));
+  --graph-node-tag: rgb(var(--glow-amber-rgb));
   
   // Heading colors
   --h1-color: var(--custom-teal);

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Turla, Waterbug, Venomous Bear</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="Turla, Waterbug, Venomous Bear"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Turla, Waterbug, Venomous Bear"/><meta name="twitter:description" content="Turla, Waterbug, Venomous Bear Description Turla is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004."/><meta property="og:description" content="Turla, Waterbug, Venomous Bear Description Turla is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004."/><meta property="og:image:alt" content="Turla, Waterbug, Venomous Bear Description Turla is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Turla,-Waterbug,-Venomous-Bear"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Turla,-Waterbug,-Venomous-Bear"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="Turla, Waterbug, Venomous Bear Description Turla is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvUFJPSkVDVF9vYnNpZGlhbi10aHJlYXQtaW50ZWxsaWdlbmNlL1BST0pFQ1Rfb2JzaWRpYW4tdGhyZWF0LWludGVsbGlnZW5jZS9xdWFydHovcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBhZGRpbmc6IDJyZW07XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="./prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/Turla,-Waterbug,-Venomous-Bear-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/Turla,-Waterbug,-Venomous-Bear-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/Turla,-Waterbug,-Venomous-Bear-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Turla,-Waterbug,-Venomous-Bear"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href=".">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-content"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="explorer-content" aria-expanded="false"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Turla, Waterbug, Venomous Bear</a></div></nav><h1 class="article-title">Turla, Waterbug, Venomous Bear</h1><p show-comma="true" class="content-meta"><time datetime="2025-06-30T00:20:11.000Z">Jun 30, 2025</time><span>9 min read</span></p></div></div><article class="popover-hint"><h1 id="turla-waterbug-venomous-bear">Turla, Waterbug, Venomous Bear<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#turla-waterbug-venomous-bear" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="description">Description<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#description" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Turla is a Russian-based threat group that has infected victims in over 45 countries, spanning a range of industries including government, embassies, military, education, research and pharmaceutical companies since 2004. Heightened activity was seen in mid-2015. Turla is known for conducting watering hole and spear-phishing campaigns and leveraging in-house tools and malware. Turla’s espionage platform is mainly used against Windows machines, but has also been seen used against macOS and Linux machines.</p>
+<p>Turla has been known to also infiltrate malicious infrastructure from other APT groups such as <a href="./Transparent-Tribe,-APT-36" class="internal alias" data-slug="Transparent-Tribe,-APT-36">Transparent Tribe, APT 36</a> in 2022.</p>
+<h2 id="names">Names<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#names" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Name</th><th>Name-Giver</th></tr></thead><tbody><tr><td>Turla</td><td>Kaspersky</td></tr><tr><td>Waterbug</td><td>Symantec</td></tr><tr><td>Venomous Bear</td><td>CrowdStrike</td></tr><tr><td>Group 88</td><td>Talos</td></tr><tr><td>SIG2</td><td>NSA</td></tr><tr><td>SIG15</td><td>NSA</td></tr><tr><td>SIG23</td><td>NSA</td></tr><tr><td>Iron Hunter</td><td>SecureWorks</td></tr><tr><td>CTG-8875</td><td>SecureWorks</td></tr><tr><td>Pacifier APT</td><td>Bitdefender</td></tr><tr><td>ATK 13</td><td>Thales</td></tr><tr><td>ITG12</td><td>IBM</td></tr><tr><td>Makersmark</td><td>ESET</td></tr><tr><td>Krypton</td><td>Microsoft</td></tr><tr><td>Belugasturgeon</td><td>Accenture</td></tr><tr><td>Popeye</td><td>?</td></tr><tr><td>Wraith</td><td>?</td></tr><tr><td>TAG-0530</td><td>Recorded Future</td></tr><tr><td>UNC4210</td><td>Mandiant</td></tr><tr><td>SUMMIT</td><td>Google</td></tr><tr><td>Secret Blizzard</td><td>Microsoft</td></tr><tr><td>Pensive Ursa</td><td>Palo Alto</td></tr><tr><td>Blue Python</td><td>PWC</td></tr></tbody></table></div>
+<h2 id="country">Country<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#country" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./Russia" class="internal" data-slug="Russia">Russia</a></li>
+</ul>
+<h2 id="sponsor">Sponsor<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sponsor" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>State-sponsored, FSB Centre 16L: Radio-Electronic Intelligence on Communications Facilities, Post Number 71330</p>
+<h2 id="motivation">Motivation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#motivation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Information theft and espionage</li>
+</ul>
+<h2 id="first-seen">First Seen<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#first-seen" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>1996</p>
+<h2 id="observed-sectors">Observed Sectors<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#observed-sectors" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./Aerospace" class="internal" data-slug="Aerospace">Aerospace</a></li>
+<li><a href="./Defense" class="internal" data-slug="Defense">Defense</a></li>
+<li><a href="./Education" class="internal" data-slug="Education">Education</a></li>
+<li><a href="./Embassies" class="internal" data-slug="Embassies">Embassies</a></li>
+<li><a href="./Energy" class="internal" data-slug="Energy">Energy</a></li>
+<li><a href="./Government" class="internal" data-slug="Government">Government</a></li>
+<li><a href="./High-Tech" class="internal" data-slug="High-Tech">High-Tech</a></li>
+<li><a href="./IT" class="internal" data-slug="IT">IT</a></li>
+<li><a href="./Media" class="internal" data-slug="Media">Media</a></li>
+<li><a href="./NGOs" class="internal" data-slug="NGOs">NGOs</a></li>
+<li><a href="./Pharmaceutical" class="internal" data-slug="Pharmaceutical">Pharmaceutical</a></li>
+<li><a href="./Research" class="internal" data-slug="Research">Research</a></li>
+<li><a href="./Retail" class="internal" data-slug="Retail">Retail</a></li>
+</ul>
+<h2 id="observed-countries">Observed Countries<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#observed-countries" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./Afghanistan" class="internal" data-slug="Afghanistan">Afghanistan</a></li>
+<li><a href="./Algeria" class="internal" data-slug="Algeria">Algeria</a></li>
+<li><a href="./Armenia" class="internal" data-slug="Armenia">Armenia</a></li>
+<li><a href="./Australia" class="internal" data-slug="Australia">Australia</a></li>
+<li><a href="./Austria" class="internal" data-slug="Austria">Austria</a></li>
+<li><a href="./Azerbaijan" class="internal" data-slug="Azerbaijan">Azerbaijan</a></li>
+<li><a href="./Belarus" class="internal" data-slug="Belarus">Belarus</a></li>
+<li><a href="./Belgium" class="internal" data-slug="Belgium">Belgium</a></li>
+<li><a href="./Bolivia" class="internal" data-slug="Bolivia">Bolivia</a></li>
+<li><a href="./Botswana" class="internal" data-slug="Botswana">Botswana</a></li>
+<li><a href="./Brazil" class="internal" data-slug="Brazil">Brazil</a></li>
+<li><a href="./China" class="internal" data-slug="China">China</a></li>
+<li><a href="./Chile" class="internal" data-slug="Chile">Chile</a></li>
+<li><a href="./Denmark" class="internal" data-slug="Denmark">Denmark</a></li>
+<li><a href="./Ecuador" class="internal" data-slug="Ecuador">Ecuador</a></li>
+<li><a href="./Estonia" class="internal" data-slug="Estonia">Estonia</a></li>
+<li><a href="./Finland" class="internal" data-slug="Finland">Finland</a></li>
+<li><a href="./France" class="internal" data-slug="France">France</a></li>
+<li><a href="./Georgia" class="internal" data-slug="Georgia">Georgia</a></li>
+<li><a href="./Germany" class="internal" data-slug="Germany">Germany</a></li>
+<li><a href="./Hong-Kong" class="internal alias" data-slug="Hong-Kong">Hong Kong</a></li>
+<li><a href="./Hungary" class="internal" data-slug="Hungary">Hungary</a></li>
+<li><a href="./India" class="internal" data-slug="India">India</a></li>
+<li><a href="./Indonesia" class="internal" data-slug="Indonesia">Indonesia</a></li>
+<li><a href="./Iran" class="internal" data-slug="Iran">Iran</a></li>
+<li><a href="./Iraq" class="internal" data-slug="Iraq">Iraq</a></li>
+<li><a href="./Italy" class="internal" data-slug="Italy">Italy</a></li>
+<li><a href="./Jamaica" class="internal" data-slug="Jamaica">Jamaica</a></li>
+<li><a href="./Jordan" class="internal" data-slug="Jordan">Jordan</a></li>
+<li><a href="./Kazakhstan" class="internal" data-slug="Kazakhstan">Kazakhstan</a></li>
+<li><a href="./Kyrgyzstan" class="internal" data-slug="Kyrgyzstan">Kyrgyzstan</a></li>
+<li><a href="./Kuwait" class="internal" data-slug="Kuwait">Kuwait</a></li>
+<li><a href="./Latvia" class="internal" data-slug="Latvia">Latvia</a></li>
+<li><a href="./Mexico" class="internal" data-slug="Mexico">Mexico</a></li>
+<li><a href="./Netherlands" class="internal" data-slug="Netherlands">Netherlands</a></li>
+<li><a href="./Pakistan" class="internal" data-slug="Pakistan">Pakistan</a></li>
+<li><a href="./Paraguay" class="internal" data-slug="Paraguay">Paraguay</a></li>
+<li><a href="./Poland" class="internal" data-slug="Poland">Poland</a></li>
+<li><a href="./Qatar" class="internal" data-slug="Qatar">Qatar</a></li>
+<li><a href="./Romania" class="internal" data-slug="Romania">Romania</a></li>
+<li><a href="./Russia" class="internal" data-slug="Russia">Russia</a></li>
+<li><a href="./Serbia" class="internal" data-slug="Serbia">Serbia</a></li>
+<li><a href="./Spain" class="internal" data-slug="Spain">Spain</a></li>
+<li><a href="./Saudi-Arabia" class="internal alias" data-slug="Saudi-Arabia">Saudi Arabia</a></li>
+<li><a href="./South-Africa" class="internal alias" data-slug="South-Africa">South Africa</a></li>
+<li><a href="./Sweden" class="internal" data-slug="Sweden">Sweden</a></li>
+<li><a href="./Switzerland" class="internal" data-slug="Switzerland">Switzerland</a></li>
+<li><a href="./Syria" class="internal" data-slug="Syria">Syria</a></li>
+<li><a href="./Tajikistan" class="internal" data-slug="Tajikistan">Tajikistan</a></li>
+<li><a href="./Thailand" class="internal" data-slug="Thailand">Thailand</a></li>
+<li><a href="./Tunisia" class="internal" data-slug="Tunisia">Tunisia</a></li>
+<li><a href="./Turkmenistan" class="internal" data-slug="Turkmenistan">Turkmenistan</a></li>
+<li><a href="./UK" class="internal" data-slug="UK">UK</a></li>
+<li><a href="./Ukraine" class="internal" data-slug="Ukraine">Ukraine</a></li>
+<li><a href="./Uruguay" class="internal" data-slug="Uruguay">Uruguay</a></li>
+<li><a href="./USA" class="internal" data-slug="USA">USA</a></li>
+<li><a href="./Uzbekistan" class="internal" data-slug="Uzbekistan">Uzbekistan</a></li>
+<li><a href="./Venezuela" class="internal" data-slug="Venezuela">Venezuela</a></li>
+<li><a href="./Vietnam" class="internal" data-slug="Vietnam">Vietnam</a></li>
+<li><a href="./Yemen" class="internal" data-slug="Yemen">Yemen</a></li>
+</ul>
+<h2 id="tools">Tools<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tools" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./AdobeARM" class="internal" data-slug="AdobeARM">AdobeARM</a></li>
+<li><a href="./Agent.BTZ" class="internal" data-slug="Agent.BTZ">Agent.BTZ</a></li>
+<li><a href="./Agent.DNE" class="internal" data-slug="Agent.DNE">Agent.DNE</a></li>
+<li><a href="./ASPXSpy" class="internal" data-slug="ASPXSpy">ASPXSpy</a></li>
+<li><a href="./ATI-Agent" class="internal" data-slug="ATI-Agent">ATI-Agent</a></li>
+<li><a href="./certutil" class="internal" data-slug="certutil">certutil</a></li>
+<li><a href="./CloudDuke" class="internal" data-slug="CloudDuke">CloudDuke</a></li>
+<li><a href="./Cobra-Carbon-System" class="internal alias" data-slug="Cobra-Carbon-System">Cobra Carbon System</a></li>
+<li><a href="./COMpfun" class="internal" data-slug="COMpfun">COMpfun</a></li>
+<li><a href="./ComRAT" class="internal" data-slug="ComRAT">ComRAT</a></li>
+<li><a href="./Crutch" class="internal" data-slug="Crutch">Crutch</a></li>
+<li><a href="./DoublePulsar" class="internal" data-slug="DoublePulsar">DoublePulsar</a></li>
+<li><a href="./EmpireProject" class="internal" data-slug="EmpireProject">EmpireProject</a></li>
+<li><a href="./Epic" class="internal" data-slug="Epic">Epic</a></li>
+<li><a href="./EternalBlue" class="internal" data-slug="EternalBlue">EternalBlue</a></li>
+<li><a href="./EternalRomance" class="internal" data-slug="EternalRomance">EternalRomance</a></li>
+<li><a href="./Gazer" class="internal" data-slug="Gazer">Gazer</a></li>
+<li><a href="./gpresult" class="internal" data-slug="gpresult">gpresult</a></li>
+<li><a href="./HTML5-Encoding" class="internal alias" data-slug="HTML5-Encoding">HTML5 Encoding</a></li>
+<li><a href="./HyperStack" class="internal" data-slug="HyperStack">HyperStack</a></li>
+<li><a href="./IcedCoffee" class="internal" data-slug="IcedCoffee">IcedCoffee</a></li>
+<li><a href="./IronNetInjector" class="internal" data-slug="IronNetInjector">IronNetInjector</a></li>
+<li><a href="./Kazuar" class="internal" data-slug="Kazuar">Kazuar</a></li>
+<li><a href="./KopiLuwak" class="internal" data-slug="KopiLuwak">KopiLuwak</a></li>
+<li><a href="./KSL0T" class="internal" data-slug="KSL0T">KSL0T</a></li>
+<li><a href="./LightNeuron" class="internal" data-slug="LightNeuron">LightNeuron</a></li>
+<li><a href="./Maintools.js" class="internal" data-slug="Maintools.js">Maintools.js</a></li>
+<li><a href="./Metasploit" class="internal" data-slug="Metasploit">Metasploit</a></li>
+<li><a href="./Meterpreter" class="internal" data-slug="Meterpreter">Meterpreter</a></li>
+<li><a href="./MiamiBeach" class="internal" data-slug="MiamiBeach">MiamiBeach</a></li>
+<li><a href="./Mimikatz" class="internal" data-slug="Mimikatz">Mimikatz</a></li>
+<li><a href="./Mosquito" class="internal" data-slug="Mosquito">Mosquito</a></li>
+<li><a href="./Nautilus" class="internal" data-slug="Nautilus">Nautilus</a></li>
+<li><a href="./nbtscan" class="internal" data-slug="nbtscan">nbtscan</a></li>
+<li><a href="./nbtstat" class="internal" data-slug="nbtstat">nbtstat</a></li>
+<li><a href="./Neptun" class="internal" data-slug="Neptun">Neptun</a></li>
+<li><a href="./NetFlash" class="internal" data-slug="NetFlash">NetFlash</a></li>
+<li><a href="./NETVulture" class="internal" data-slug="NETVulture">NETVulture</a></li>
+<li><a href="./Neuron" class="internal" data-slug="Neuron">Neuron</a></li>
+<li><a href="./NewPass" class="internal" data-slug="NewPass">NewPass</a></li>
+<li><a href="./Outlook-Backdoor" class="internal alias" data-slug="Outlook-Backdoor">Outlook Backdoor</a></li>
+<li><a href="./Penquin-Turla" class="internal alias" data-slug="Penquin-Turla">Penquin Turla</a></li>
+<li><a href="./PowerShellRunner-based-RPC-backdoor" class="internal alias" data-slug="PowerShellRunner-based-RPC-backdoor">PowerShellRunner-based RPC backdoor</a></li>
+<li><a href="./PowerStallion" class="internal" data-slug="PowerStallion">PowerStallion</a></li>
+<li><a href="./PsExec" class="internal" data-slug="PsExec">PsExec</a></li>
+<li><a href="./pwdump" class="internal" data-slug="pwdump">pwdump</a></li>
+<li><a href="./PyFlash" class="internal" data-slug="PyFlash">PyFlash</a></li>
+<li><a href="./RocketMan" class="internal" data-slug="RocketMan">RocketMan</a></li>
+<li><a href="./Satellite-Turla" class="internal alias" data-slug="Satellite-Turla">Satellite Turla</a></li>
+<li><a href="./SScan" class="internal" data-slug="SScan">SScan</a></li>
+<li><a href="./Skipper" class="internal" data-slug="Skipper">Skipper</a></li>
+<li><a href="./SMBTouch" class="internal" data-slug="SMBTouch">SMBTouch</a></li>
+<li><a href="./TinyTurla" class="internal" data-slug="TinyTurla">TinyTurla</a></li>
+<li><a href="./TinyTurla-NG" class="internal" data-slug="TinyTurla-NG">TinyTurla-NG</a></li>
+<li><a href="./Topinambour" class="internal" data-slug="Topinambour">Topinambour</a></li>
+<li><a href="./Tunnus" class="internal" data-slug="Tunnus">Tunnus</a></li>
+<li><a href="./TurlaChopper" class="internal" data-slug="TurlaChopper">TurlaChopper</a></li>
+<li><a href="./Uroburos" class="internal" data-slug="Uroburos">Uroburos</a></li>
+<li><a href="./Windows-Credentials-Editor" class="internal alias" data-slug="Windows-Credentials-Editor">Windows Credentials Editor</a></li>
+<li><a href="./WhiteAtlas" class="internal" data-slug="WhiteAtlas">WhiteAtlas</a></li>
+<li><a href="./WITCHCOVEN" class="internal" data-slug="WITCHCOVEN">WITCHCOVEN</a></li>
+<li><a href="./Living-off-the-Land" class="internal alias" data-slug="Living-off-the-Land">Living off the Land</a></li>
+</ul>
+<h2 id="operations">Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>1996:</strong> Operation “Moonlight Maze”
+That is why our experts, aided by researchers from King’s College London, have carefully studied Moonlight Maze — one of the first widely known cyberespionage campaigns, active since at least 1996. It is of particular interest because several independent experts from countries have voiced the proposition that it is associated with a much more modern — and still active — group, the authors of the Turla APT attack.
+<a href="https://www.kaspersky.com/blog/moonlight-maze-the-lessons/6713/" class="external">https://www.kaspersky.com/blog/moonlight-maze-the-lessons/6713/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2008-11:</strong> Breach of the US Department of Defense
+<a href="https://www.nytimes.com/2010/08/26/technology/26cyber.html" class="external">https://www.nytimes.com/2010/08/26/technology/26cyber.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>
+The investigation was called “Operation Buckshot Yankee” and led to the establishment of U.S. Cyber Command.</li>
+<li><strong>2013:</strong> Operation “Epic Turla”
+Over the last 10 months, Kaspersky Lab researchers have analyzed a massive cyber-espionage operation which we call “Epic Turla”. The attackers behind Epic Turla have infected several hundred computers in more than 45 countries, including government institutions, embassies, military, education, research and pharmaceutical companies.
+<a href="https://securelist.com/the-epic-turla-operation/65545/" class="external">https://securelist.com/the-epic-turla-operation/65545/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2014:</strong> Breach of the Swiss military firm RUAG
+<a href="https://www.melani.admin.ch/melani/en/home/dokumentation/reports/technical-reports/technical-report_apt_case_ruag.html" class="external">https://www.melani.admin.ch/melani/en/home/dokumentation/reports/technical-reports/technical-report_apt_case_ruag.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2014-12:</strong> Operation “Penguin Turla”
+The Turla APT campaigns have a broader reach than initially anticipated after the recent discovery of two modules built to infect servers running Linux. Until now, every Turla sample in captivity was designed for either 32- or 64-bit Windows systems, but researchers at Kaspersky Lab have discovered otherwise.
+<a href="https://threatpost.com/linux-modules-connected-to-turla-apt-discovered/109765/" class="external">https://threatpost.com/linux-modules-connected-to-turla-apt-discovered/109765/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2015:</strong> Operation “Satellite Turla”
+Obviously, such incredibly apparent and large-scale attacks have little chance of surviving for long periods of time, which is one of the key requirements for running an APT operation. It is therefore not very feasible to perform the attack through MitM traffic hijacking, unless the attackers have direct control over some high-traffic network points, such as backbone routers or fiber optics. There are signs that such attacks are becoming more common, but there is a much simpler way to hijack satellite-based Internet traffic.
+<a href="https://securelist.com/satellite-turla-apt-command-and-control-in-the-sky/72081/" class="external">https://securelist.com/satellite-turla-apt-command-and-control-in-the-sky/72081/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2015:</strong> Operation “WITCHCOVEN”
+When an unsuspecting user visits any of the over 100 compromised websites, a small piece of inserted code—embedded in the site’s HTML and invisible to casual visitors—quietly redirects the user’s browser to a second compromised website without the user’s knowledge. This second website hosts the WITCHCOVEN script, which uses profiling techniques to collect technical information on the user’s computer. As of early November 2015, we identified a total of 14 websites hosting the WITCHCOVEN profiling script.
+<a href="https://www2.fireeye.com/rs/848-DID-242/images/rpt-witchcoven.pdf" class="external">https://www2.fireeye.com/rs/848-DID-242/images/rpt-witchcoven.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2015:</strong> ESET researchers found a previously undocumented backdoor and document stealer. Dubbed Crutch by its developers, we were able to attribute it to the infamous Turla APT group. According to our research, it was used from 2015 to, at least, early 2020.
+<a href="https://www.welivesecurity.com/2020/12/02/turla-crutch-keeping-back-door-open/" class="external">https://www.welivesecurity.com/2020/12/02/turla-crutch-keeping-back-door-open/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2016-11:</strong> Operation “Skipper Turla”
+On 28 January 2017, John Lambert of Microsoft (@JohnLaTwC) tweeted about a malicious document that dropped a “very interesting .JS backdoor“. Since the end of November 2016, Kaspersky Lab has observed Turla using this new JavaScript payload and specific macro variant.
+<a href="https://securelist.com/kopiluwak-a-new-javascript-payload-from-turla/77429/" class="external">https://securelist.com/kopiluwak-a-new-javascript-payload-from-turla/77429/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>
+<a href="https://securelist.com/introducing-whitebear/81638/" class="external">https://securelist.com/introducing-whitebear/81638/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017:</strong> Operation “Turla Mosquito”
+ESET researchers have observed a significant change in the campaign of the infamous espionage group
+<a href="https://www.welivesecurity.com/2018/05/22/turla-mosquito-shift-towards-generic-tools/" class="external">https://www.welivesecurity.com/2018/05/22/turla-mosquito-shift-towards-generic-tools/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017-03:</strong> New versions of Carbon
+The Turla espionage group has been targeting various institutions for many years. Recently, we found several new versions of Carbon, a second stage backdoor in the Turla group arsenal.
+<a href="https://www.welivesecurity.com/2017/03/30/carbon-paper-peering-turlas-second-stage-backdoor/" class="external">https://www.welivesecurity.com/2017/03/30/carbon-paper-peering-turlas-second-stage-backdoor/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017-05:</strong> New backdoor Kazuar
+<a href="https://unit42.paloaltonetworks.com/unit42-kazuar-multiplatform-espionage-backdoor-api-access/" class="external">https://unit42.paloaltonetworks.com/unit42-kazuar-multiplatform-espionage-backdoor-api-access/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017-06:</strong> Some of the tactics used in APT attacks die hard. A good example is provided by Turla’s watering hole campaigns. Turla, which has been targeting governments, government officials and diplomats for years – see, as an example, this recent paper – is still using watering hole techniques to redirect potentially interesting victims to their C&amp;C infrastructure. In fact, they have been using them since at least 2014 with very few variations in their modus operandi.
+<a href="https://www.welivesecurity.com/2017/06/06/turlas-watering-hole-campaign-updated-firefox-extension-abusing-instagram/" class="external">https://www.welivesecurity.com/2017/06/06/turlas-watering-hole-campaign-updated-firefox-extension-abusing-instagram/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017-07:</strong> Russian malware link hid in a comment on Britney Spears’ Instagram
+The Slovak IT security company ESET Security released a report yesterday detailing a cleverly hidden example of such a post. And its hideout? A Britney Spears photo. Among the nearly 7,000 comments written on the performer’s post (shown below) was one that could easily pass as spam.
+<a href="https://www.engadget.com/2017/06/07/russian-malware-hidden-britney-spears-instagram/" class="external">https://www.engadget.com/2017/06/07/russian-malware-hidden-britney-spears-instagram/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017-08:</strong> New backdoor Gazer
+<a href="https://www.welivesecurity.com/wp-content/uploads/2017/08/eset-gazer.pdf" class="external">https://www.welivesecurity.com/wp-content/uploads/2017/08/eset-gazer.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2017-08:</strong> In this case, the dropper is being delivered with a benign and possibly stolen decoy document inviting recipients to a G20 task force meeting on the “Digital Economy”. The Digital Economy event is actually scheduled for October of this year in Hamburg, Germany.
+<a href="https://www.proofpoint.com/us/threat-insight/post/turla-apt-actor-refreshes-kopiluwak-javascript-backdoor-use-g20-themed-attack" class="external">https://www.proofpoint.com/us/threat-insight/post/turla-apt-actor-refreshes-kopiluwak-javascript-backdoor-use-g20-themed-attack<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2018-01:</strong> A notorious hacking group is targeting the UK with an updated version of malware designed to embed itself into compromised networks and stealthily conduct espionage.
+Both the Neuron and Nautilus malware variants have previously been attributed to the Turla advanced persistent threat group, which regularly carries out cyber-espionage against a range of targets, including government, military, technology, energy, and other commercial organisations.
+<a href="https://www.zdnet.com/article/this-hacking-gang-just-updated-the-malware-it-uses-against-uk-targets/" class="external">https://www.zdnet.com/article/this-hacking-gang-just-updated-the-malware-it-uses-against-uk-targets/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2018-01:</strong> Espionage Group Rolls Out Brand-New Toolset in Attacks Against Governments
+Waterbug may have hijacked a separate espionage group’s infrastructure during one attack against a Middle Eastern target.
+<a href="https://www.symantec.com/blogs/threat-intelligence/waterbug-espionage-governments" class="external">https://www.symantec.com/blogs/threat-intelligence/waterbug-espionage-governments<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2018-03:</strong> Starting in March 2018, we observed a significant change in the campaign: it now leverages the open source exploitation framework Metasploit before dropping the custom Mosquito backdoor.
+<a href="https://www.welivesecurity.com/2018/05/22/turla-mosquito-shift-towards-generic-tools/" class="external">https://www.welivesecurity.com/2018/05/22/turla-mosquito-shift-towards-generic-tools/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2018:</strong> Much of our 2018 research focused on Turla’s KopiLuwak javascript backdoor, new variants of the Carbon framework and meterpreter delivery techniques. Also interesting was Mosquito’s changing delivery techniques, customized PoshSec-Mod open-source powershell use, and borrowed injector code. We tied some of this activity together with infrastructure and data points from WhiteBear and Mosquito infrastructure and activity in 2017 and 2018.
+<a href="https://securelist.com/shedding-skin-turlas-fresh-faces/88069/" class="external">https://securelist.com/shedding-skin-turlas-fresh-faces/88069/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2019 Early:</strong> 2019 has seen the Turla actor actively renew its arsenal. Its developers are still using a familiar coding style, but they’re creating new tools. Here we’ll tell you about several of them, namely “Topinambour” (aka Sunchoke – the Jerusalem artichoke) and its related modules. We didn’t choose to name it after a vegetable; the .NET malware developers named it Topinambour themselves.
+<a href="https://securelist.com/turla-renews-its-arsenal-with-topinambour/91687/" class="external">https://securelist.com/turla-renews-its-arsenal-with-topinambour/91687/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2019-04:</strong> COMpfun successor Reductor infects files on the fly to compromise TLS traffic
+<a href="https://securelist.com/compfun-successor-reductor/93633/" class="external">https://securelist.com/compfun-successor-reductor/93633/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2019-05:</strong> Turla, also known as Snake, is an infamous espionage group recognized for its complex malware. To confound detection, its operators recently started using PowerShell scripts that provide direct, in-memory loading and execution of malware executables and libraries. This allows them to bypass detection that can trigger when a malicious executable is dropped on disk.
+<a href="https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/" class="external">https://www.welivesecurity.com/2019/05/29/turla-powershell-usage/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2019:</strong> Turla accessed and used the Command and Control (C2) infrastructure of Iranian APTs to deploy their own tools to victims of interest. Turla directly accessed ‘Poison Frog’ C2 panels from their own infrastructure and used this access to task victims to download additional tools.
+<a href="https://www.ncsc.gov.uk/news/turla-group-exploits-iran-apt-to-expand-coverage-of-victims" class="external">https://www.ncsc.gov.uk/news/turla-group-exploits-iran-apt-to-expand-coverage-of-victims<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2019-09:</strong> ESET researchers found a watering hole (aka strategic web compromise) operation targeting several high-profile Armenian websites. It relies on a fake Adobe Flash update lure and delivers two previously undocumented pieces of malware we have dubbed NetFlash and PyFlash.
+<a href="https://www.welivesecurity.com/2020/03/12/tracking-turla-new-backdoor-armenian-watering-holes/" class="external">https://www.welivesecurity.com/2020/03/12/tracking-turla-new-backdoor-armenian-watering-holes/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2019-11:</strong> COMpfun authors spoof visa application with HTTP status-based Trojan
+<a href="https://securelist.com/compfun-http-status-based-trojan/96874/" class="external">https://securelist.com/compfun-http-status-based-trojan/96874/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2020-01:</strong> During our investigation, we were able to identify three different targets where ComRAT v4 has been used:
+• Two Ministries of Foreign Affairs in Eastern Europe
+• One national parliament in the Caucasus region
+<a href="https://www.welivesecurity.com/wp-content/uploads/2020/05/ESET_Turla_ComRAT.pdf" class="external">https://www.welivesecurity.com/wp-content/uploads/2020/05/ESET_Turla_ComRAT.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2020-06:</strong> At the best of our knowledge, this time the hacking group used a previously unseen implant, that we internally named “NewPass“ as one of the parameters used to send exfiltrated data to the command and control.
+<a href="https://www.telsy.com/turla-venomous-bear-updates-its-arsenal-newpass-appears-on-the-apt-threat-scene/" class="external">https://www.telsy.com/turla-venomous-bear-updates-its-arsenal-newpass-appears-on-the-apt-threat-scene/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2020-06:</strong> Accenture Cyber Threat Intelligence researchers identified a Turla compromise of a European government organization. During this compromise Turla utilized a combination of remote procedure call (RPC)-based backdoors, such as HyperStack and remote administration trojans (RATs), such as Kazuar and Carbon, which ACTI researchers analyzed between June and October 2020.
+<a href="https://www.accenture.com/us-en/blogs/cyber-defense/turla-belugasturgeon-compromises-government-entity" class="external">https://www.accenture.com/us-en/blogs/cyber-defense/turla-belugasturgeon-compromises-government-entity<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2021-01:</strong> In January 2021, ESET Research uncovered a new backdoor on a server belonging to a Ministry of Foreign Affairs in Eastern Europe.
+<a href="https://www.welivesecurity.com/wp-content/uploads/2021/05/eset_threat_report_t12021.pdf" class="external">https://www.welivesecurity.com/wp-content/uploads/2021/05/eset_threat_report_t12021.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2021-02:</strong> IronNetInjector: Turla’s New Malware Loading Tool
+<a href="https://unit42.paloaltonetworks.com/ironnetinjector/" class="external">https://unit42.paloaltonetworks.com/ironnetinjector/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2021-09:</strong> TinyTurla - Turla deploys new malware to keep a secret backdoor on victim machines
+<a href="https://blog.talosintelligence.com/2021/09/tinyturla.html" class="external">https://blog.talosintelligence.com/2021/09/tinyturla.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2022-03:</strong> Turla, a group publicly attributed to Russia’s Federal Security Service (FSB), recently hosted Android apps on a domain spoofing the Ukrainian Azov Regiment.
+<a href="https://blog.google/threat-analysis-group/continued-cyber-activity-in-eastern-europe-observed-by-tag/" class="external">https://blog.google/threat-analysis-group/continued-cyber-activity-in-eastern-europe-observed-by-tag/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2022-04:</strong> Turla, a group TAG attributes to Russia FSB, continues to run campaigns against the Baltics, targeting defense and cybersecurity organizations in the region.
+<a href="https://blog.google/threat-analysis-group/update-on-cyber-activity-in-eastern-europe/" class="external">https://blog.google/threat-analysis-group/update-on-cyber-activity-in-eastern-europe/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2022-05:</strong> TURLA’s new phishing-based reconnaissance campaign in Eastern Europe
+<a href="https://blog.sekoia.io/turla-new-phishing-campaign-eastern-europe/" class="external">https://blog.sekoia.io/turla-new-phishing-campaign-eastern-europe/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2022-09:</strong> Turla: A Galaxy of Opportunity
+<a href="https://www.mandiant.com/resources/blog/turla-galaxy-opportunity" class="external">https://www.mandiant.com/resources/blog/turla-galaxy-opportunity<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2023-07:</strong> Microsoft: Hackers turn Exchange servers into malware control centers
+<a href="https://www.bleepingcomputer.com/news/security/microsoft-hackers-turn-exchange-servers-into-malware-control-centers/" class="external">https://www.bleepingcomputer.com/news/security/microsoft-hackers-turn-exchange-servers-into-malware-control-centers/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2022-12:</strong> Snowblind: The Invisible Hand of Secret Blizzard
+<a href="https://blog.lumen.com/snowblind-the-invisible-hand-of-secret-blizzard/" class="external">https://blog.lumen.com/snowblind-the-invisible-hand-of-secret-blizzard/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2023-07:</strong> Over the Kazuar’s Nest: Cracking Down on a Freshly Hatched Backdoor Used by Pensive Ursa (Aka Turla)
+<a href="https://unit42.paloaltonetworks.com/pensive-ursa-uses-upgraded-kazuar-backdoor/" class="external">https://unit42.paloaltonetworks.com/pensive-ursa-uses-upgraded-kazuar-backdoor/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><strong>2023-12:</strong> TinyTurla Next Generation - Turla APT spies on Polish NGOs
+<a href="https://blog.talosintelligence.com/tinyturla-next-generation/" class="external">https://blog.talosintelligence.com/tinyturla-next-generation/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="information">Information<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#information" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/waterbug-attack-group.pdf" class="external">https://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/waterbug-attack-group.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-march-venomous-bear/" class="external">https://www.crowdstrike.com/blog/meet-crowdstrikes-adversary-of-the-month-for-march-venomous-bear/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.recordedfuture.com/turla-apt-infrastructure/" class="external">https://www.recordedfuture.com/turla-apt-infrastructure/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.welivesecurity.com/wp-content/uploads/2020/05/ESET_Turla_ComRAT.pdf" class="external">https://www.welivesecurity.com/wp-content/uploads/2020/05/ESET_Turla_ComRAT.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://interaktiv.br.de/elite-hacker-fsb/en/index.html" class="external">https://interaktiv.br.de/elite-hacker-fsb/en/index.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://services.google.com/fh/files/blogs/google_fog_of_war_research_report.pdf" class="external">https://services.google.com/fh/files/blogs/google_fog_of_war_research_report.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://unit42.paloaltonetworks.com/turla-pensive-ursa-threat-assessment/" class="external">https://unit42.paloaltonetworks.com/turla-pensive-ursa-threat-assessment/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.trendmicro.com/en_us/research/23/i/examining-the-activities-of-the-turla-group.html" class="external">https://www.trendmicro.com/en_us/research/23/i/examining-the-activities-of-the-turla-group.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.microsoft.com/en-us/security/blog/2024/12/04/frequent-freeloader-part-i-secret-blizzard-compromising-storm-0156-infrastructure-for-espionage/" class="external">https://www.microsoft.com/en-us/security/blog/2024/12/04/frequent-freeloader-part-i-secret-blizzard-compromising-storm-0156-infrastructure-for-espionage/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.microsoft.com/en-us/security/blog/2024/12/11/frequent-freeloader-part-ii-russian-actor-secret-blizzard-using-tools-of-other-groups-to-attack-ukraine/" class="external">https://www.microsoft.com/en-us/security/blog/2024/12/11/frequent-freeloader-part-ii-russian-actor-secret-blizzard-using-tools-of-other-groups-to-attack-ukraine/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="mitre-attack">Mitre Attack<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mitre-attack" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://attack.mitre.org/groups/G0010/" class="external">https://attack.mitre.org/groups/G0010/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="other-information">Other Information<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#other-information" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="uuid">Uuid<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#uuid" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>ebff5365-ae36-4e47-a310-28c1f3be0b3a</p>
+<h2 id="last-card-change">Last Card Change<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#last-card-change" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>2024-12-27</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul class="toc-content overflow" id="list-1"><li class="depth-0"><a href="#turla-waterbug-venomous-bear" data-for="turla-waterbug-venomous-bear">Turla, Waterbug, Venomous Bear</a></li><li class="depth-1"><a href="#description" data-for="description">Description</a></li><li class="depth-1"><a href="#names" data-for="names">Names</a></li><li class="depth-1"><a href="#country" data-for="country">Country</a></li><li class="depth-1"><a href="#sponsor" data-for="sponsor">Sponsor</a></li><li class="depth-1"><a href="#motivation" data-for="motivation">Motivation</a></li><li class="depth-1"><a href="#first-seen" data-for="first-seen">First Seen</a></li><li class="depth-1"><a href="#observed-sectors" data-for="observed-sectors">Observed Sectors</a></li><li class="depth-1"><a href="#observed-countries" data-for="observed-countries">Observed Countries</a></li><li class="depth-1"><a href="#tools" data-for="tools">Tools</a></li><li class="depth-1"><a href="#operations" data-for="operations">Operations</a></li><li class="depth-1"><a href="#information" data-for="information">Information</a></li><li class="depth-1"><a href="#mitre-attack" data-for="mitre-attack">Mitre Attack</a></li><li class="depth-1"><a href="#other-information" data-for="other-information">Other Information</a></li><li class="depth-1"><a href="#uuid" data-for="uuid">Uuid</a></li><li class="depth-1"><a href="#last-card-change" data-for="last-card-change">Last Card Change</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="./Tomiris" class="internal">Tomiris</a></li><li><a href="./Transparent-Tribe,-APT-36" class="internal">Transparent Tribe, APT 36</a></li><li><a href="./index-groups" class="internal">index-groups</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.1</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="./postscript.js" type="module"></script></html>

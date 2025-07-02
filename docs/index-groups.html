@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>index-groups</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 4"/><meta property="og:title" content="index-groups"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="index-groups"/><meta name="twitter:description" content="index-groups 8220 Gang ALPHV, BlackCat Gang ALTDOS, Desorden APT 12, Numbered Panda APT 16, SVCMONDR APT 17, Deputy Dog, Elderwood, Sneaky Panda APT 18, Dynamite Panda, Wekby APT 19, Deep Panda, C0d0so0 APT 20, Violin Panda APT 29, Cozy Bear, The Dukes APT 3, Gothic Panda, Buckeye APT 30, Override P..."/><meta property="og:description" content="index-groups 8220 Gang ALPHV, BlackCat Gang ALTDOS, Desorden APT 12, Numbered Panda APT 16, SVCMONDR APT 17, Deputy Dog, Elderwood, Sneaky Panda APT 18, Dynamite Panda, Wekby APT 19, Deep Panda, C0d0so0 APT 20, Violin Panda APT 29, Cozy Bear, The Dukes APT 3, Gothic Panda, Buckeye APT 30, Override P..."/><meta property="og:image:alt" content="index-groups 8220 Gang ALPHV, BlackCat Gang ALTDOS, Desorden APT 12, Numbered Panda APT 16, SVCMONDR APT 17, Deputy Dog, Elderwood, Sneaky Panda APT 18, Dynamite Panda, Wekby APT 19, Deep Panda, C0d0so0 APT 20, Violin Panda APT 29, Cozy Bear, The Dukes APT 3, Gothic Panda, Buckeye APT 30, Override P..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/index-groups"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/index-groups"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="index-groups 8220 Gang ALPHV, BlackCat Gang ALTDOS, Desorden APT 12, Numbered Panda APT 16, SVCMONDR APT 17, Deputy Dog, Elderwood, Sneaky Panda APT 18, Dynamite Panda, Wekby APT 19, Deep Panda, C0d0so0 APT 20, Violin Panda APT 29, Cozy Bear, The Dukes APT 3, Gothic Panda, Buckeye APT 30, Override P..."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvUFJPSkVDVF9vYnNpZGlhbi10aHJlYXQtaW50ZWxsaWdlbmNlL1BST0pFQ1Rfb2JzaWRpYW4tdGhyZWF0LWludGVsbGlnZW5jZS9xdWFydHovcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUlGO0VBQ0U7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLmV4cGFuZC1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsb2F0OiByaWdodDtcbiAgcGFkZGluZzogMC40cmVtO1xuICBtYXJnaW46IDAuM3JlbTtcbiAgcmlnaHQ6IDA7IC8vIE5PVEU6IHJpZ2h0IHdpbGwgYmUgc2V0IGluIG1lcm1haWQuaW5saW5lLnRzXG4gIGNvbG9yOiB2YXIoLS1ncmF5KTtcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICBib3JkZXI6IDFweCBzb2xpZDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBvcGFjaXR5OiAwO1xuICB0cmFuc2l0aW9uOiAwLjJzO1xuXG4gICYgPiBzdmcge1xuICAgIGZpbGw6IHZhcigtLWxpZ2h0KTtcbiAgICBmaWx0ZXI6IGNvbnRyYXN0KDAuMyk7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xuICB9XG5cbiAgJjpmb2N1cyB7XG4gICAgb3V0bGluZTogMDtcbiAgfVxufVxuXG5wcmUge1xuICAmOmhvdmVyID4gLmV4cGFuZC1idXR0b24ge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgdHJhbnNpdGlvbjogMC4ycztcbiAgfVxufVxuXG4jbWVybWFpZC1jb250YWluZXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGNvbnRhaW46IGxheW91dDtcbiAgei1pbmRleDogOTk5O1xuICBsZWZ0OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgZGlzcGxheTogbm9uZTtcbiAgYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC41KTtcblxuICAmLmFjdGl2ZSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG5cbiAgJiA+ICNtZXJtYWlkLXNwYWNlIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHRvcDogNTAlO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICBoZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDgwdnc7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuICAgICYgPiAubWVybWFpZC1jb250ZW50IHtcbiAgICAgIHBhZGRpbmc6IDJyZW07XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="./prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/index-groups-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/index-groups-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/index-groups-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="index-groups"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href=".">Quartz 4</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-content"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="explorer-content" aria-expanded="false"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>index groups</a></div></nav><h1 class="article-title">index-groups</h1><p show-comma="true" class="content-meta"><time datetime="2025-06-30T00:20:11.000Z">Jun 30, 2025</time><span>6 min read</span></p></div></div><article class="popover-hint"><h1 id="index-groups">index-groups<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#index-groups" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<ul>
+<li><a href="./8220-Gang" class="internal alias" data-slug="8220-Gang">8220 Gang</a></li>
+<li><a href="./ALPHV,-BlackCat-Gang" class="internal alias" data-slug="ALPHV,-BlackCat-Gang">ALPHV, BlackCat Gang</a></li>
+<li><a href="./ALTDOS,-Desorden" class="internal alias" data-slug="ALTDOS,-Desorden">ALTDOS, Desorden</a></li>
+<li><a href="./APT-12,-Numbered-Panda" class="internal alias" data-slug="APT-12,-Numbered-Panda">APT 12, Numbered Panda</a></li>
+<li><a href="./APT-16,-SVCMONDR" class="internal alias" data-slug="APT-16,-SVCMONDR">APT 16, SVCMONDR</a></li>
+<li><a href="./APT-17,-Deputy-Dog,-Elderwood,-Sneaky-Panda" class="internal alias" data-slug="APT-17,-Deputy-Dog,-Elderwood,-Sneaky-Panda">APT 17, Deputy Dog, Elderwood, Sneaky Panda</a></li>
+<li><a href="./APT-18,-Dynamite-Panda,-Wekby" class="internal alias" data-slug="APT-18,-Dynamite-Panda,-Wekby">APT 18, Dynamite Panda, Wekby</a></li>
+<li><a href="./APT-19,-Deep-Panda,-C0d0so0" class="internal alias" data-slug="APT-19,-Deep-Panda,-C0d0so0">APT 19, Deep Panda, C0d0so0</a></li>
+<li><a href="./APT-20,-Violin-Panda" class="internal alias" data-slug="APT-20,-Violin-Panda">APT 20, Violin Panda</a></li>
+<li><a href="./APT-29,-Cozy-Bear,-The-Dukes" class="internal alias" data-slug="APT-29,-Cozy-Bear,-The-Dukes">APT 29, Cozy Bear, The Dukes</a></li>
+<li><a href="./APT-3,-Gothic-Panda,-Buckeye" class="internal alias" data-slug="APT-3,-Gothic-Panda,-Buckeye">APT 3, Gothic Panda, Buckeye</a></li>
+<li><a href="./APT-30,-Override-Panda" class="internal alias" data-slug="APT-30,-Override-Panda">APT 30, Override Panda</a></li>
+<li><a href="./APT-31,-Judgment-Panda,-Zirconium" class="internal alias" data-slug="APT-31,-Judgment-Panda,-Zirconium">APT 31, Judgment Panda, Zirconium</a></li>
+<li><a href="./APT-32,-OceanLotus,-SeaLotus" class="internal alias" data-slug="APT-32,-OceanLotus,-SeaLotus">APT 32, OceanLotus, SeaLotus</a></li>
+<li><a href="./APT-33,-Elfin,-Magnallium" class="internal alias" data-slug="APT-33,-Elfin,-Magnallium">APT 33, Elfin, Magnallium</a></li>
+<li><a href="./APT-4,-Maverick-Panda,-Wisp-Team" class="internal alias" data-slug="APT-4,-Maverick-Panda,-Wisp-Team">APT 4, Maverick Panda, Wisp Team</a></li>
+<li><a href="./APT-41" class="internal alias" data-slug="APT-41">APT 41</a></li>
+<li><a href="./APT-42" class="internal alias" data-slug="APT-42">APT 42</a></li>
+<li><a href="./APT-5,-Keyhole-Panda" class="internal alias" data-slug="APT-5,-Keyhole-Panda">APT 5, Keyhole Panda</a></li>
+<li><a href="./APT-6" class="internal alias" data-slug="APT-6">APT 6</a></li>
+<li><a href="./APT-C-60" class="internal" data-slug="APT-C-60">APT-C-60</a></li>
+<li><a href="./APT9" class="internal" data-slug="APT9">APT9</a></li>
+<li><a href="./AVIVORE" class="internal" data-slug="AVIVORE">AVIVORE</a></li>
+<li><a href="./Achilles" class="internal" data-slug="Achilles">Achilles</a></li>
+<li><a href="./AeroBlade" class="internal" data-slug="AeroBlade">AeroBlade</a></li>
+<li><a href="./Aggah" class="internal" data-slug="Aggah">Aggah</a></li>
+<li><a href="./Agrius" class="internal" data-slug="Agrius">Agrius</a></li>
+<li><a href="./Allanite" class="internal" data-slug="Allanite">Allanite</a></li>
+<li><a href="./Anchor-Panda,-APT-14" class="internal alias" data-slug="Anchor-Panda,-APT-14">Anchor Panda, APT 14</a></li>
+<li><a href="./Andariel,-Silent-Chollima" class="internal alias" data-slug="Andariel,-Silent-Chollima">Andariel, Silent Chollima</a></li>
+<li><a href="./Andromeda-Spider" class="internal alias" data-slug="Andromeda-Spider">Andromeda Spider</a></li>
+<li><a href="./Angry-Likho" class="internal alias" data-slug="Angry-Likho">Angry Likho</a></li>
+<li><a href="./Antlion" class="internal" data-slug="Antlion">Antlion</a></li>
+<li><a href="./Aoqin-Dragon" class="internal alias" data-slug="Aoqin-Dragon">Aoqin Dragon</a></li>
+<li><a href="./Aquatic-Panda" class="internal alias" data-slug="Aquatic-Panda">Aquatic Panda</a></li>
+<li><a href="./AtlasCross" class="internal" data-slug="AtlasCross">AtlasCross</a></li>
+<li><a href="./Avalanche" class="internal" data-slug="Avalanche">Avalanche</a></li>
+<li><a href="./Awaken-Likho" class="internal alias" data-slug="Awaken-Likho">Awaken Likho</a></li>
+<li><a href="./Axiom,-Group-72" class="internal alias" data-slug="Axiom,-Group-72">Axiom, Group 72</a></li>
+<li><a href="./Bad-Magic,-RedStinger" class="internal alias" data-slug="Bad-Magic,-RedStinger">Bad Magic, RedStinger</a></li>
+<li><a href="./Bahamut" class="internal" data-slug="Bahamut">Bahamut</a></li>
+<li><a href="./Bamboo-Spider,-TA544" class="internal alias" data-slug="Bamboo-Spider,-TA544">Bamboo Spider, TA544</a></li>
+<li><a href="./Barium" class="internal" data-slug="Barium">Barium</a></li>
+<li><a href="./BeagleBoyz" class="internal" data-slug="BeagleBoyz">BeagleBoyz</a></li>
+<li><a href="./Berserk-Bear,-Dragonfly-2.0" class="internal alias" data-slug="Berserk-Bear,-Dragonfly-2.0">Berserk Bear, Dragonfly 2.0</a></li>
+<li><a href="./Big-Panda" class="internal alias" data-slug="Big-Panda">Big Panda</a></li>
+<li><a href="./Bismuth" class="internal" data-slug="Bismuth">Bismuth</a></li>
+<li><a href="./Bitter" class="internal" data-slug="Bitter">Bitter</a></li>
+<li><a href="./BlackOasis" class="internal" data-slug="BlackOasis">BlackOasis</a></li>
+<li><a href="./BlackTech,-Circuit-Panda,-Radio-Panda" class="internal alias" data-slug="BlackTech,-Circuit-Panda,-Radio-Panda">BlackTech, Circuit Panda, Radio Panda</a></li>
+<li><a href="./Blackgear" class="internal" data-slug="Blackgear">Blackgear</a></li>
+<li><a href="./Blackwood" class="internal" data-slug="Blackwood">Blackwood</a></li>
+<li><a href="./Blind-Eagle" class="internal alias" data-slug="Blind-Eagle">Blind Eagle</a></li>
+<li><a href="./Blue-Termite,-Cloudy-Omega" class="internal alias" data-slug="Blue-Termite,-Cloudy-Omega">Blue Termite, Cloudy Omega</a></li>
+<li><a href="./Bluenoroff,-APT-38,-Stardust-Chollima" class="internal alias" data-slug="Bluenoroff,-APT-38,-Stardust-Chollima">Bluenoroff, APT 38, Stardust Chollima</a></li>
+<li><a href="./Bookworm" class="internal" data-slug="Bookworm">Bookworm</a></li>
+<li><a href="./Boson-Spider" class="internal alias" data-slug="Boson-Spider">Boson Spider</a></li>
+<li><a href="./Boss-Spider,-Gold-Lowell" class="internal alias" data-slug="Boss-Spider,-Gold-Lowell">Boss Spider, Gold Lowell</a></li>
+<li><a href="./Boulder-Bear" class="internal alias" data-slug="Boulder-Bear">Boulder Bear</a></li>
+<li><a href="./Bronze-Butler,-Tick,-RedBaldNight,-Stalker-Panda" class="internal alias" data-slug="Bronze-Butler,-Tick,-RedBaldNight,-Stalker-Panda">Bronze Butler, Tick, RedBaldNight, Stalker Panda</a></li>
+<li><a href="./Bronze-Highland" class="internal alias" data-slug="Bronze-Highland">Bronze Highland</a></li>
+<li><a href="./Bronze-Starlight" class="internal alias" data-slug="Bronze-Starlight">Bronze Starlight</a></li>
+<li><a href="./Buhtrap,-Ratopak-Spider" class="internal alias" data-slug="Buhtrap,-Ratopak-Spider">Buhtrap, Ratopak Spider</a></li>
+<li><a href="./CIA" class="internal" data-slug="CIA">CIA</a></li>
+<li><a href="./Cadelle" class="internal" data-slug="Cadelle">Cadelle</a></li>
+<li><a href="./Cadet-Blizzard" class="internal alias" data-slug="Cadet-Blizzard">Cadet Blizzard</a></li>
+<li><a href="./Callisto-Group" class="internal alias" data-slug="Callisto-Group">Callisto Group</a></li>
+<li><a href="./Calypso" class="internal" data-slug="Calypso">Calypso</a></li>
+<li><a href="./Carbanak,-Anunak" class="internal alias" data-slug="Carbanak,-Anunak">Carbanak, Anunak</a></li>
+<li><a href="./Carderbee" class="internal" data-slug="Carderbee">Carderbee</a></li>
+<li><a href="./CardinalLizard" class="internal" data-slug="CardinalLizard">CardinalLizard</a></li>
+<li><a href="./Careto,-The-Mask" class="internal alias" data-slug="Careto,-The-Mask">Careto, The Mask</a></li>
+<li><a href="./CeranaKeeper" class="internal" data-slug="CeranaKeeper">CeranaKeeper</a></li>
+<li><a href="./Chafer,-APT-39" class="internal alias" data-slug="Chafer,-APT-39">Chafer, APT 39</a></li>
+<li><a href="./ChamelGang" class="internal" data-slug="ChamelGang">ChamelGang</a></li>
+<li><a href="./Chimera" class="internal" data-slug="Chimera">Chimera</a></li>
+<li><a href="./Circles" class="internal" data-slug="Circles">Circles</a></li>
+<li><a href="./Circus-Spider" class="internal alias" data-slug="Circus-Spider">Circus Spider</a></li>
+<li><a href="./Clever-Kitten" class="internal alias" data-slug="Clever-Kitten">Clever Kitten</a></li>
+<li><a href="./Clockwork-Spider" class="internal alias" data-slug="Clockwork-Spider">Clockwork Spider</a></li>
+<li><a href="./CloudSorcerer" class="internal" data-slug="CloudSorcerer">CloudSorcerer</a></li>
+<li><a href="./Cobalt-Group" class="internal alias" data-slug="Cobalt-Group">Cobalt Group</a></li>
+<li><a href="./Cold-River" class="internal alias" data-slug="Cold-River">Cold River</a></li>
+<li><a href="./Comment-Crew,-APT-1" class="internal alias" data-slug="Comment-Crew,-APT-1">Comment Crew, APT 1</a></li>
+<li><a href="./Confucius" class="internal" data-slug="Confucius">Confucius</a></li>
+<li><a href="./CopyKittens,-Slayer-Kitten" class="internal alias" data-slug="CopyKittens,-Slayer-Kitten">CopyKittens, Slayer Kitten</a></li>
+<li><a href="./CoralRaider" class="internal" data-slug="CoralRaider">CoralRaider</a></li>
+<li><a href="./Corkow,-Metel" class="internal alias" data-slug="Corkow,-Metel">Corkow, Metel</a></li>
+<li><a href="./Corsair-Jackal" class="internal alias" data-slug="Corsair-Jackal">Corsair Jackal</a></li>
+<li><a href="./Cosmic-Leopard,-Operation-Celestial-Force" class="internal alias" data-slug="Cosmic-Leopard,-Operation-Celestial-Force">Cosmic Leopard, Operation Celestial Force</a></li>
+<li><a href="./CostaRicto" class="internal" data-slug="CostaRicto">CostaRicto</a></li>
+<li><a href="./Covellite" class="internal" data-slug="Covellite">Covellite</a></li>
+<li><a href="./Cron" class="internal" data-slug="Cron">Cron</a></li>
+<li><a href="./Curious-Gorge" class="internal alias" data-slug="Curious-Gorge">Curious Gorge</a></li>
+<li><a href="./Cutting-Kitten,-TG-2889" class="internal alias" data-slug="Cutting-Kitten,-TG-2889">Cutting Kitten, TG-2889</a></li>
+<li><a href="./Cyber-Berkut" class="internal alias" data-slug="Cyber-Berkut">Cyber Berkut</a></li>
+<li><a href="./Cyber-Caliphate-Army-(CCA),-United-Cyber-Caliphate-(UCC)" class="internal alias" data-slug="Cyber-Caliphate-Army-(CCA),-United-Cyber-Caliphate-(UCC)">Cyber Caliphate Army (CCA), United Cyber Caliphate (UCC)</a></li>
+<li><a href="./Cyber-fighters-of-Izz-Ad-Din-Al-Qassam,-Fraternal-Jackal" class="internal alias" data-slug="Cyber-fighters-of-Izz-Ad-Din-Al-Qassam,-Fraternal-Jackal">Cyber fighters of Izz Ad-Din Al Qassam, Fraternal Jackal</a></li>
+<li><a href="./CyberAv3ngers" class="internal" data-slug="CyberAv3ngers">CyberAv3ngers</a></li>
+<li><a href="./DEV-0270,-Nemesis-Kitten" class="internal alias" data-slug="DEV-0270,-Nemesis-Kitten">DEV-0270, Nemesis Kitten</a></li>
+<li><a href="./DNSpionage" class="internal" data-slug="DNSpionage">DNSpionage</a></li>
+<li><a href="./Dalbit" class="internal" data-slug="Dalbit">Dalbit</a></li>
+<li><a href="./Dark-Basin" class="internal alias" data-slug="Dark-Basin">Dark Basin</a></li>
+<li><a href="./Dark-Caracal" class="internal alias" data-slug="Dark-Caracal">Dark Caracal</a></li>
+<li><a href="./Dark-Pink" class="internal alias" data-slug="Dark-Pink">Dark Pink</a></li>
+<li><a href="./DarkCasino" class="internal" data-slug="DarkCasino">DarkCasino</a></li>
+<li><a href="./DarkHotel" class="internal" data-slug="DarkHotel">DarkHotel</a></li>
+<li><a href="./DarkHydrus,-LazyMeerkat" class="internal alias" data-slug="DarkHydrus,-LazyMeerkat">DarkHydrus, LazyMeerkat</a></li>
+<li><a href="./DarkUniverse" class="internal" data-slug="DarkUniverse">DarkUniverse</a></li>
+<li><a href="./Deceptikons,-DeathStalker" class="internal alias" data-slug="Deceptikons,-DeathStalker">Deceptikons, DeathStalker</a></li>
+<li><a href="./Desert-Falcons" class="internal alias" data-slug="Desert-Falcons">Desert Falcons</a></li>
+<li><a href="./Dextorous-Spider" class="internal alias" data-slug="Dextorous-Spider">Dextorous Spider</a></li>
+<li><a href="./Dizzy-Panda" class="internal alias" data-slug="Dizzy-Panda">Dizzy Panda</a></li>
+<li><a href="./Domestic-Kitten" class="internal alias" data-slug="Domestic-Kitten">Domestic Kitten</a></li>
+<li><a href="./Donot-Team" class="internal alias" data-slug="Donot-Team">Donot Team</a></li>
+<li><a href="./Doppel-Spider" class="internal alias" data-slug="Doppel-Spider">Doppel Spider</a></li>
+<li><a href="./DragonOK" class="internal" data-slug="DragonOK">DragonOK</a></li>
+<li><a href="./DragonSpark" class="internal" data-slug="DragonSpark">DragonSpark</a></li>
+<li><a href="./Dungeon-Spider" class="internal alias" data-slug="Dungeon-Spider">Dungeon Spider</a></li>
+<li><a href="./Dust-Storm" class="internal alias" data-slug="Dust-Storm">Dust Storm</a></li>
+<li><a href="./DustSquad,-Golden-Falcon" class="internal alias" data-slug="DustSquad,-Golden-Falcon">DustSquad, Golden Falcon</a></li>
+<li><a href="./Earth-Alux" class="internal alias" data-slug="Earth-Alux">Earth Alux</a></li>
+<li><a href="./Earth-Ammit" class="internal alias" data-slug="Earth-Ammit">Earth Ammit</a></li>
+<li><a href="./Earth-Baxia" class="internal alias" data-slug="Earth-Baxia">Earth Baxia</a></li>
+<li><a href="./Earth-Berberoka" class="internal alias" data-slug="Earth-Berberoka">Earth Berberoka</a></li>
+<li><a href="./Earth-Freybug" class="internal alias" data-slug="Earth-Freybug">Earth Freybug</a></li>
+<li><a href="./Earth-Krahang" class="internal alias" data-slug="Earth-Krahang">Earth Krahang</a></li>
+<li><a href="./Earth-Kurma" class="internal alias" data-slug="Earth-Kurma">Earth Kurma</a></li>
+<li><a href="./Earth-Lamia" class="internal alias" data-slug="Earth-Lamia">Earth Lamia</a></li>
+<li><a href="./Earth-Longzhi" class="internal alias" data-slug="Earth-Longzhi">Earth Longzhi</a></li>
+<li><a href="./Earth-Lusca" class="internal alias" data-slug="Earth-Lusca">Earth Lusca</a></li>
+<li><a href="./Earth-Minotaur" class="internal alias" data-slug="Earth-Minotaur">Earth Minotaur</a></li>
+<li><a href="./Earth-Wendigo" class="internal alias" data-slug="Earth-Wendigo">Earth Wendigo</a></li>
+<li><a href="./El-Machete" class="internal alias" data-slug="El-Machete">El Machete</a></li>
+<li><a href="./Electric-Panda" class="internal alias" data-slug="Electric-Panda">Electric Panda</a></li>
+<li><a href="./Elephant-Beetle" class="internal alias" data-slug="Elephant-Beetle">Elephant Beetle</a></li>
+<li><a href="./Eloquent-Panda" class="internal alias" data-slug="Eloquent-Panda">Eloquent Panda</a></li>
+<li><a href="./Emissary-Panda,-APT-27,-LuckyMouse,-Bronze-Union" class="internal alias" data-slug="Emissary-Panda,-APT-27,-LuckyMouse,-Bronze-Union">Emissary Panda, APT 27, LuckyMouse, Bronze Union</a></li>
+<li><a href="./EmpireMonkey,-CobaltGoblin" class="internal alias" data-slug="EmpireMonkey,-CobaltGoblin">EmpireMonkey, CobaltGoblin</a></li>
+<li><a href="./Energetic-Bear,-Dragonfly" class="internal alias" data-slug="Energetic-Bear,-Dragonfly">Energetic Bear, Dragonfly</a></li>
+<li><a href="./Equation-Group" class="internal alias" data-slug="Equation-Group">Equation Group</a></li>
+<li><a href="./Evilnum" class="internal" data-slug="Evilnum">Evilnum</a></li>
+<li><a href="./FIN10" class="internal" data-slug="FIN10">FIN10</a></li>
+<li><a href="./FIN11" class="internal" data-slug="FIN11">FIN11</a></li>
+<li><a href="./FIN12" class="internal" data-slug="FIN12">FIN12</a></li>
+<li><a href="./FIN13" class="internal" data-slug="FIN13">FIN13</a></li>
+<li><a href="./FIN4,-Wolf-Spider" class="internal alias" data-slug="FIN4,-Wolf-Spider">FIN4, Wolf Spider</a></li>
+<li><a href="./FIN5" class="internal" data-slug="FIN5">FIN5</a></li>
+<li><a href="./FIN6,-Skeleton-Spider" class="internal alias" data-slug="FIN6,-Skeleton-Spider">FIN6, Skeleton Spider</a></li>
+<li><a href="./FIN7" class="internal" data-slug="FIN7">FIN7</a></li>
+<li><a href="./FIN8" class="internal" data-slug="FIN8">FIN8</a></li>
+<li><a href="./Ferocious-Kitten" class="internal alias" data-slug="Ferocious-Kitten">Ferocious Kitten</a></li>
+<li><a href="./Fishing-Elephant" class="internal alias" data-slug="Fishing-Elephant">Fishing Elephant</a></li>
+<li><a href="./Flax-Typhoon" class="internal alias" data-slug="Flax-Typhoon">Flax Typhoon</a></li>
+<li><a href="./Flyfox" class="internal" data-slug="Flyfox">Flyfox</a></li>
+<li><a href="./Flying-Kitten,-Ajax-Security-Team" class="internal alias" data-slug="Flying-Kitten,-Ajax-Security-Team">Flying Kitten, Ajax Security Team</a></li>
+<li><a href="./Foxy-Panda" class="internal alias" data-slug="Foxy-Panda">Foxy Panda</a></li>
+<li><a href="./FunnyDream" class="internal" data-slug="FunnyDream">FunnyDream</a></li>
+<li><a href="./Fxmsp" class="internal" data-slug="Fxmsp">Fxmsp</a></li>
+<li><a href="./GCHQ" class="internal" data-slug="GCHQ">GCHQ</a></li>
+<li><a href="./GCMAN" class="internal" data-slug="GCMAN">GCMAN</a></li>
+<li><a href="./Gallium" class="internal" data-slug="Gallium">Gallium</a></li>
+<li><a href="./Gallmaker" class="internal" data-slug="Gallmaker">Gallmaker</a></li>
+<li><a href="./Gamaredon-Group" class="internal alias" data-slug="Gamaredon-Group">Gamaredon Group</a></li>
+<li><a href="./GambleForce" class="internal" data-slug="GambleForce">GambleForce</a></li>
+<li><a href="./Gangnam-Industrial-Style" class="internal alias" data-slug="Gangnam-Industrial-Style">Gangnam Industrial Style</a></li>
+<li><a href="./Gelsemium" class="internal" data-slug="Gelsemium">Gelsemium</a></li>
+<li><a href="./Ghost-Jackal" class="internal alias" data-slug="Ghost-Jackal">Ghost Jackal</a></li>
+<li><a href="./GhostNet,-Snooping-Dragon" class="internal alias" data-slug="GhostNet,-Snooping-Dragon">GhostNet, Snooping Dragon</a></li>
+<li><a href="./Gibberish-Panda" class="internal alias" data-slug="Gibberish-Panda">Gibberish Panda</a></li>
+<li><a href="./Gnosticplayers" class="internal" data-slug="Gnosticplayers">Gnosticplayers</a></li>
+<li><a href="./Goblin-Panda,-Cycldek,-Conimes" class="internal alias" data-slug="Goblin-Panda,-Cycldek,-Conimes">Goblin Panda, Cycldek, Conimes</a></li>
+<li><a href="./GoldenJackal" class="internal" data-slug="GoldenJackal">GoldenJackal</a></li>
+<li><a href="./Goldmouse,-APT-C-27" class="internal alias" data-slug="Goldmouse,-APT-C-27">Goldmouse, APT-C-27</a></li>
+<li><a href="./Gorgon-Group" class="internal alias" data-slug="Gorgon-Group">Gorgon Group</a></li>
+<li><a href="./Grayling" class="internal" data-slug="Grayling">Grayling</a></li>
+<li><a href="./GreenCharlie" class="internal" data-slug="GreenCharlie">GreenCharlie</a></li>
+<li><a href="./Greenbug,-Volatile-Kitten" class="internal alias" data-slug="Greenbug,-Volatile-Kitten">Greenbug, Volatile Kitten</a></li>
+<li><a href="./Group5" class="internal" data-slug="Group5">Group5</a></li>
+<li><a href="./Guru-Spider" class="internal alias" data-slug="Guru-Spider">Guru Spider</a></li>
+<li><a href="./Hacking-Team" class="internal alias" data-slug="Hacking-Team">Hacking Team</a></li>
+<li><a href="./Hades" class="internal" data-slug="Hades">Hades</a></li>
+<li><a href="./Hafnium" class="internal" data-slug="Hafnium">Hafnium</a></li>
+<li><a href="./Handala-Hack-Team" class="internal alias" data-slug="Handala-Hack-Team">Handala Hack Team</a></li>
+<li><a href="./Harvester" class="internal" data-slug="Harvester">Harvester</a></li>
+<li><a href="./Hexane" class="internal" data-slug="Hexane">Hexane</a></li>
+<li><a href="./Hidden-Lynx,-Aurora-Panda" class="internal alias" data-slug="Hidden-Lynx,-Aurora-Panda">Hidden Lynx, Aurora Panda</a></li>
+<li><a href="./HolyWater" class="internal" data-slug="HolyWater">HolyWater</a></li>
+<li><a href="./HomeLand-Justice" class="internal alias" data-slug="HomeLand-Justice">HomeLand Justice</a></li>
+<li><a href="./Honeybee" class="internal" data-slug="Honeybee">Honeybee</a></li>
+<li><a href="./Hurricane-Panda" class="internal alias" data-slug="Hurricane-Panda">Hurricane Panda</a></li>
+<li><a href="./Hydrochasma" class="internal" data-slug="Hydrochasma">Hydrochasma</a></li>
+<li><a href="./IAmTheKing" class="internal" data-slug="IAmTheKing">IAmTheKing</a></li>
+<li><a href="./ITG18" class="internal" data-slug="ITG18">ITG18</a></li>
+<li><a href="./Icefog,-Dagger-Panda" class="internal alias" data-slug="Icefog,-Dagger-Panda">Icefog, Dagger Panda</a></li>
+<li><a href="./Impersonating-Panda" class="internal alias" data-slug="Impersonating-Panda">Impersonating Panda</a></li>
+<li><a href="./Inception-Framework,-Cloud-Atlas" class="internal alias" data-slug="Inception-Framework,-Cloud-Atlas">Inception Framework, Cloud Atlas</a></li>
+<li><a href="./IndigoZebra" class="internal" data-slug="IndigoZebra">IndigoZebra</a></li>
+<li><a href="./Indra" class="internal" data-slug="Indra">Indra</a></li>
+<li><a href="./Indrik-Spider" class="internal alias" data-slug="Indrik-Spider">Indrik Spider</a></li>
+<li><a href="./Infraud-Organization" class="internal alias" data-slug="Infraud-Organization">Infraud Organization</a></li>
+<li><a href="./Infy,-Prince-of-Persia" class="internal alias" data-slug="Infy,-Prince-of-Persia">Infy, Prince of Persia</a></li>
+<li><a href="./InvisiMole" class="internal" data-slug="InvisiMole">InvisiMole</a></li>
+<li><a href="./Iridium" class="internal" data-slug="Iridium">Iridium</a></li>
+<li><a href="./IronHusky" class="internal" data-slug="IronHusky">IronHusky</a></li>
+<li><a href="./Karakurt" class="internal" data-slug="Karakurt">Karakurt</a></li>
+<li><a href="./Karkadann" class="internal" data-slug="Karkadann">Karkadann</a></li>
+<li><a href="./Ke3chang,-Vixen-Panda,-APT-15,-GREF,-Playful-Dragon" class="internal alias" data-slug="Ke3chang,-Vixen-Panda,-APT-15,-GREF,-Playful-Dragon">Ke3chang, Vixen Panda, APT 15, GREF, Playful Dragon</a></li>
+<li><a href="./Kimsuky,-Velvet-Chollima" class="internal alias" data-slug="Kimsuky,-Velvet-Chollima">Kimsuky, Velvet Chollima</a></li>
+<li><a href="./Knockout-Spider" class="internal alias" data-slug="Knockout-Spider">Knockout Spider</a></li>
+<li><a href="./Kumsong121" class="internal" data-slug="Kumsong121">Kumsong121</a></li>
+<li><a href="./Lancefly" class="internal" data-slug="Lancefly">Lancefly</a></li>
+<li><a href="./Lapsus$" class="internal" data-slug="Lapsus$">Lapsus$</a></li>
+<li><a href="./Lazarus-Group,-Hidden-Cobra,-Labyrinth-Chollima" class="internal alias" data-slug="Lazarus-Group,-Hidden-Cobra,-Labyrinth-Chollima">Lazarus Group, Hidden Cobra, Labyrinth Chollima</a></li>
+<li><a href="./LazyScripter" class="internal" data-slug="LazyScripter">LazyScripter</a></li>
+<li><a href="./Lead" class="internal" data-slug="Lead">Lead</a></li>
+<li><a href="./Leafminer,-Raspite" class="internal alias" data-slug="Leafminer,-Raspite">Leafminer, Raspite</a></li>
+<li><a href="./Leviathan,-APT-40,-TEMP.Periscope" class="internal alias" data-slug="Leviathan,-APT-40,-TEMP.Periscope">Leviathan, APT 40, TEMP.Periscope</a></li>
+<li><a href="./Libyan-Scorpions" class="internal alias" data-slug="Libyan-Scorpions">Libyan Scorpions</a></li>
+<li><a href="./LightBasin" class="internal" data-slug="LightBasin">LightBasin</a></li>
+<li><a href="./LockBit-Gang" class="internal alias" data-slug="LockBit-Gang">LockBit Gang</a></li>
+<li><a href="./Longhorn,-The-Lamberts" class="internal alias" data-slug="Longhorn,-The-Lamberts">Longhorn, The Lamberts</a></li>
+<li><a href="./LookBack,-TA410" class="internal alias" data-slug="LookBack,-TA410">LookBack, TA410</a></li>
+<li><a href="./Lotus-Blossom,-Spring-Dragon,-Thrip" class="internal alias" data-slug="Lotus-Blossom,-Spring-Dragon,-Thrip">Lotus Blossom, Spring Dragon, Thrip</a></li>
+<li><a href="./Lucky-Cat" class="internal alias" data-slug="Lucky-Cat">Lucky Cat</a></li>
+<li><a href="./LuminousMoth" class="internal" data-slug="LuminousMoth">LuminousMoth</a></li>
+<li><a href="./Lunar-Spider" class="internal alias" data-slug="Lunar-Spider">Lunar Spider</a></li>
+<li><a href="./Lurk" class="internal" data-slug="Lurk">Lurk</a></li>
+<li><a href="./Mabna-Institute,-Cobalt-Dickens,-Silent-Librarian" class="internal alias" data-slug="Mabna-Institute,-Cobalt-Dickens,-Silent-Librarian">Mabna Institute, Cobalt Dickens, Silent Librarian</a></li>
+<li><a href="./Madi" class="internal" data-slug="Madi">Madi</a></li>
+<li><a href="./Magic-Hound,-APT-35,-Cobalt-Illusion,-Charming-Kitten" class="internal alias" data-slug="Magic-Hound,-APT-35,-Cobalt-Illusion,-Charming-Kitten">Magic Hound, APT 35, Cobalt Illusion, Charming Kitten</a></li>
+<li><a href="./Magic-Kitten" class="internal alias" data-slug="Magic-Kitten">Magic Kitten</a></li>
+<li><a href="./Magnetic-Spider" class="internal alias" data-slug="Magnetic-Spider">Magnetic Spider</a></li>
+<li><a href="./MalKamak" class="internal" data-slug="MalKamak">MalKamak</a></li>
+<li><a href="./Mallard-Spider" class="internal alias" data-slug="Mallard-Spider">Mallard Spider</a></li>
+<li><a href="./Mikroceen" class="internal" data-slug="Mikroceen">Mikroceen</a></li>
+<li><a href="./Moafee" class="internal" data-slug="Moafee">Moafee</a></li>
+<li><a href="./Molerats,-Extreme-Jackal,-Gaza-Cybergang" class="internal alias" data-slug="Molerats,-Extreme-Jackal,-Gaza-Cybergang">Molerats, Extreme Jackal, Gaza Cybergang</a></li>
+<li><a href="./MoneyTaker" class="internal" data-slug="MoneyTaker">MoneyTaker</a></li>
+<li><a href="./Monty-Spider" class="internal alias" data-slug="Monty-Spider">Monty Spider</a></li>
+<li><a href="./Moonstone-Sleet" class="internal alias" data-slug="Moonstone-Sleet">Moonstone Sleet</a></li>
+<li><a href="./Moses-Staff" class="internal alias" data-slug="Moses-Staff">Moses Staff</a></li>
+<li><a href="./MoustachedBouncer" class="internal" data-slug="MoustachedBouncer">MoustachedBouncer</a></li>
+<li><a href="./MuddyWater,-Seedworm,-TEMP.Zagros,-Static-Kitten" class="internal alias" data-slug="MuddyWater,-Seedworm,-TEMP.Zagros,-Static-Kitten">MuddyWater, Seedworm, TEMP.Zagros, Static Kitten</a></li>
+<li><a href="./Mummy-Spider,-TA542" class="internal alias" data-slug="Mummy-Spider,-TA542">Mummy Spider, TA542</a></li>
+<li><a href="./Mustang-Panda,-Bronze-President" class="internal alias" data-slug="Mustang-Panda,-Bronze-President">Mustang Panda, Bronze President</a></li>
+<li><a href="./Mysterious-Elephant" class="internal alias" data-slug="Mysterious-Elephant">Mysterious Elephant</a></li>
+<li><a href="./NB65" class="internal" data-slug="NB65">NB65</a></li>
+<li><a href="./Naikon,-Lotus-Panda" class="internal alias" data-slug="Naikon,-Lotus-Panda">Naikon, Lotus Panda</a></li>
+<li><a href="./Narwhal-Spider" class="internal alias" data-slug="Narwhal-Spider">Narwhal Spider</a></li>
+<li><a href="./Nazar" class="internal" data-slug="Nazar">Nazar</a></li>
+<li><a href="./Neodymium" class="internal" data-slug="Neodymium">Neodymium</a></li>
+<li><a href="./NetSec,-USDoD" class="internal alias" data-slug="NetSec,-USDoD">NetSec, USDoD</a></li>
+<li><a href="./NetTraveler,-APT-21,-Hammer-Panda" class="internal alias" data-slug="NetTraveler,-APT-21,-Hammer-Panda">NetTraveler, APT 21, Hammer Panda</a></li>
+<li><a href="./Night-Dragon" class="internal alias" data-slug="Night-Dragon">Night Dragon</a></li>
+<li><a href="./Nightshade-Panda,-APT-9,-Group-27" class="internal alias" data-slug="Nightshade-Panda,-APT-9,-Group-27">Nightshade Panda, APT 9, Group 27</a></li>
+<li><a href="./NineBlog" class="internal" data-slug="NineBlog">NineBlog</a></li>
+<li><a href="./Nitro,-Covert-Grove" class="internal alias" data-slug="Nitro,-Covert-Grove">Nitro, Covert Grove</a></li>
+<li><a href="./OPERA1ER" class="internal" data-slug="OPERA1ER">OPERA1ER</a></li>
+<li><a href="./OilAlpha" class="internal" data-slug="OilAlpha">OilAlpha</a></li>
+<li><a href="./OilRig,-APT-34,-Helix-Kitten,-Chrysene" class="internal alias" data-slug="OilRig,-APT-34,-Helix-Kitten,-Chrysene">OilRig, APT 34, Helix Kitten, Chrysene</a></li>
+<li><a href="./OldGremlin" class="internal" data-slug="OldGremlin">OldGremlin</a></li>
+<li><a href="./OnionDog" class="internal" data-slug="OnionDog">OnionDog</a></li>
+<li><a href="./Operation-Armor-Piercer" class="internal alias" data-slug="Operation-Armor-Piercer">Operation Armor Piercer</a></li>
+<li><a href="./Operation-Bandidos" class="internal alias" data-slug="Operation-Bandidos">Operation Bandidos</a></li>
+<li><a href="./Operation-Black-Atlas" class="internal alias" data-slug="Operation-Black-Atlas">Operation Black Atlas</a></li>
+<li><a href="./Operation-BugDrop" class="internal alias" data-slug="Operation-BugDrop">Operation BugDrop</a></li>
+<li><a href="./Operation-Comando" class="internal alias" data-slug="Operation-Comando">Operation Comando</a></li>
+<li><a href="./Operation-Contagious-Interview" class="internal alias" data-slug="Operation-Contagious-Interview">Operation Contagious Interview</a></li>
+<li><a href="./Operation-Crimson-Palace" class="internal alias" data-slug="Operation-Crimson-Palace">Operation Crimson Palace</a></li>
+<li><a href="./Operation-Digital-Eye" class="internal alias" data-slug="Operation-Digital-Eye">Operation Digital Eye</a></li>
+<li><a href="./Operation-Diplomatic-Specter" class="internal alias" data-slug="Operation-Diplomatic-Specter">Operation Diplomatic Specter</a></li>
+<li><a href="./Operation-Domino,-Operation-Kremlin" class="internal alias" data-slug="Operation-Domino,-Operation-Kremlin">Operation Domino, Operation Kremlin</a></li>
+<li><a href="./Operation-Dragon-Castling" class="internal alias" data-slug="Operation-Dragon-Castling">Operation Dragon Castling</a></li>
+<li><a href="./Operation-Earth-Kitsune" class="internal alias" data-slug="Operation-Earth-Kitsune">Operation Earth Kitsune</a></li>
+<li><a href="./Operation-Electric-Powder" class="internal alias" data-slug="Operation-Electric-Powder">Operation Electric Powder</a></li>
+<li><a href="./Operation-EmailThief,-TEMP_Heretic" class="internal alias" data-slug="Operation-EmailThief,-TEMP_Heretic">Operation EmailThief, TEMP_Heretic</a></li>
+<li><a href="./Operation-Epic-Manchego" class="internal alias" data-slug="Operation-Epic-Manchego">Operation Epic Manchego</a></li>
+<li><a href="./Operation-Ghostwriter" class="internal alias" data-slug="Operation-Ghostwriter">Operation Ghostwriter</a></li>
+<li><a href="./Operation-Ghoul" class="internal alias" data-slug="Operation-Ghoul">Operation Ghoul</a></li>
+<li><a href="./Operation-Groundbait" class="internal alias" data-slug="Operation-Groundbait">Operation Groundbait</a></li>
+<li><a href="./Operation-HangOver,-Monsoon,-Viceroy-Tiger" class="internal alias" data-slug="Operation-HangOver,-Monsoon,-Viceroy-Tiger">Operation HangOver, Monsoon, Viceroy Tiger</a></li>
+<li><a href="./Operation-Harvest" class="internal alias" data-slug="Operation-Harvest">Operation Harvest</a></li>
+<li><a href="./Operation-Jacana" class="internal alias" data-slug="Operation-Jacana">Operation Jacana</a></li>
+<li><a href="./Operation-Layover" class="internal alias" data-slug="Operation-Layover">Operation Layover</a></li>
+<li><a href="./Operation-LiberalFace,-MirrorFace" class="internal alias" data-slug="Operation-LiberalFace,-MirrorFace">Operation LiberalFace, MirrorFace</a></li>
+<li><a href="./Operation-Manul" class="internal alias" data-slug="Operation-Manul">Operation Manul</a></li>
+<li><a href="./Operation-Olympic-Games" class="internal alias" data-slug="Operation-Olympic-Games">Operation Olympic Games</a></li>
+<li><a href="./Operation-Parliament" class="internal alias" data-slug="Operation-Parliament">Operation Parliament</a></li>
+<li><a href="./Operation-Poison-Needles" class="internal alias" data-slug="Operation-Poison-Needles">Operation Poison Needles</a></li>
+<li><a href="./Operation-Poisoned-News,-TwoSail-Junk" class="internal alias" data-slug="Operation-Poisoned-News,-TwoSail-Junk">Operation Poisoned News, TwoSail Junk</a></li>
+<li><a href="./Operation-Potao-Express" class="internal alias" data-slug="Operation-Potao-Express">Operation Potao Express</a></li>
+<li><a href="./Operation-PseudoManuscrypt" class="internal alias" data-slug="Operation-PseudoManuscrypt">Operation PseudoManuscrypt</a></li>
+<li><a href="./Operation-Red-Signature" class="internal alias" data-slug="Operation-Red-Signature">Operation Red Signature</a></li>
+<li><a href="./Operation-RestyLink" class="internal alias" data-slug="Operation-RestyLink">Operation RestyLink</a></li>
+<li><a href="./Operation-RusticWeb" class="internal alias" data-slug="Operation-RusticWeb">Operation RusticWeb</a></li>
+<li><a href="./Operation-Rusty-Flag" class="internal alias" data-slug="Operation-Rusty-Flag">Operation Rusty Flag</a></li>
+<li><a href="./Operation-SLOW#tempest" class="internal alias" data-slug="Operation-SLOW">TEMPEST</a></li>
+<li><a href="./Operation-SalmonSlalom" class="internal alias" data-slug="Operation-SalmonSlalom">Operation SalmonSlalom</a></li>
+<li><a href="./Operation-Shady-RAT" class="internal alias" data-slug="Operation-Shady-RAT">Operation Shady RAT</a></li>
+<li><a href="./Operation-SignSight" class="internal alias" data-slug="Operation-SignSight">Operation SignSight</a></li>
+<li><a href="./Operation-Silent-Skimmer" class="internal alias" data-slug="Operation-Silent-Skimmer">Operation Silent Skimmer</a></li>
+<li><a href="./Operation-Spalax" class="internal alias" data-slug="Operation-Spalax">Operation Spalax</a></li>
+<li><a href="./Operation-Tainted-Love" class="internal alias" data-slug="Operation-Tainted-Love">Operation Tainted Love</a></li>
+<li><a href="./Operation-Titan-Rain" class="internal alias" data-slug="Operation-Titan-Rain">Operation Titan Rain</a></li>
+<li><a href="./Operation-Triangulation" class="internal alias" data-slug="Operation-Triangulation">Operation Triangulation</a></li>
+<li><a href="./Operation-TunnelSnake" class="internal alias" data-slug="Operation-TunnelSnake">Operation TunnelSnake</a></li>
+<li><a href="./Operation-ViceLeaker" class="internal alias" data-slug="Operation-ViceLeaker">Operation ViceLeaker</a></li>
+<li><a href="./Operation-Windigo" class="internal alias" data-slug="Operation-Windigo">Operation Windigo</a></li>
+<li><a href="./Operation-WizardOpium" class="internal alias" data-slug="Operation-WizardOpium">Operation WizardOpium</a></li>
+<li><a href="./Orangeworm" class="internal" data-slug="Orangeworm">Orangeworm</a></li>
+<li><a href="./OurMine" class="internal" data-slug="OurMine">OurMine</a></li>
+<li><a href="./Outlaw-Spider" class="internal alias" data-slug="Outlaw-Spider">Outlaw Spider</a></li>
+<li><a href="./Overlord-Spider" class="internal alias" data-slug="Overlord-Spider">Overlord Spider</a></li>
+<li><a href="./Pacha-Group" class="internal alias" data-slug="Pacha-Group">Pacha Group</a></li>
+<li><a href="./Packrat" class="internal" data-slug="Packrat">Packrat</a></li>
+<li><a href="./Pale-Panda" class="internal alias" data-slug="Pale-Panda">Pale Panda</a></li>
+<li><a href="./Parinacota" class="internal" data-slug="Parinacota">Parinacota</a></li>
+<li><a href="./Parisite,-Fox-Kitten,-Pioneer-Kitten" class="internal alias" data-slug="Parisite,-Fox-Kitten,-Pioneer-Kitten">Parisite, Fox Kitten, Pioneer Kitten</a></li>
+<li><a href="./ParkingBear" class="internal" data-slug="ParkingBear">ParkingBear</a></li>
+<li><a href="./PassCV" class="internal" data-slug="PassCV">PassCV</a></li>
+<li><a href="./Pat-Bear,-APT-C-37" class="internal alias" data-slug="Pat-Bear,-APT-C-37">Pat Bear, APT-C-37</a></li>
+<li><a href="./Patchwork,-Dropping-Elephant" class="internal alias" data-slug="Patchwork,-Dropping-Elephant">Patchwork, Dropping Elephant</a></li>
+<li><a href="./Pinchy-Spider,-Gold-Southfield" class="internal alias" data-slug="Pinchy-Spider,-Gold-Southfield">Pinchy Spider, Gold Southfield</a></li>
+<li><a href="./PittyTiger,-Pitty-Panda" class="internal alias" data-slug="PittyTiger,-Pitty-Panda">PittyTiger, Pitty Panda</a></li>
+<li><a href="./Planetary-Reef" class="internal alias" data-slug="Planetary-Reef">Planetary Reef</a></li>
+<li><a href="./Platinum" class="internal" data-slug="Platinum">Platinum</a></li>
+<li><a href="./PlushDaemon" class="internal" data-slug="PlushDaemon">PlushDaemon</a></li>
+<li><a href="./Poison-Carp,-Evil-Eye" class="internal alias" data-slug="Poison-Carp,-Evil-Eye">Poison Carp, Evil Eye</a></li>
+<li><a href="./Poisonous-Panda" class="internal alias" data-slug="Poisonous-Panda">Poisonous Panda</a></li>
+<li><a href="./Polonium" class="internal" data-slug="Polonium">Polonium</a></li>
+<li><a href="./Poseidon-Group" class="internal alias" data-slug="Poseidon-Group">Poseidon Group</a></li>
+<li><a href="./PowerPool" class="internal" data-slug="PowerPool">PowerPool</a></li>
+<li><a href="./Predator-Panda" class="internal alias" data-slug="Predator-Panda">Predator Panda</a></li>
+<li><a href="./Promethium,-StrongPity" class="internal alias" data-slug="Promethium,-StrongPity">Promethium, StrongPity</a></li>
+<li><a href="./Pusikurac" class="internal" data-slug="Pusikurac">Pusikurac</a></li>
+<li><a href="./Putter-Panda,-APT-2" class="internal alias" data-slug="Putter-Panda,-APT-2">Putter Panda, APT 2</a></li>
+<li><a href="./RATicate" class="internal" data-slug="RATicate">RATicate</a></li>
+<li><a href="./RTM" class="internal" data-slug="RTM">RTM</a></li>
+<li><a href="./Rampant-Kitten" class="internal alias" data-slug="Rampant-Kitten">Rampant Kitten</a></li>
+<li><a href="./Rancor" class="internal" data-slug="Rancor">Rancor</a></li>
+<li><a href="./Reaper,-APT-37,-Ricochet-Chollima,-ScarCruft" class="internal alias" data-slug="Reaper,-APT-37,-Ricochet-Chollima,-ScarCruft">Reaper, APT 37, Ricochet Chollima, ScarCruft</a></li>
+<li><a href="./RedAlpha" class="internal" data-slug="RedAlpha">RedAlpha</a></li>
+<li><a href="./RedCurl" class="internal" data-slug="RedCurl">RedCurl</a></li>
+<li><a href="./RedDelta" class="internal" data-slug="RedDelta">RedDelta</a></li>
+<li><a href="./RedEcho" class="internal" data-slug="RedEcho">RedEcho</a></li>
+<li><a href="./RedFoxtrot" class="internal" data-slug="RedFoxtrot">RedFoxtrot</a></li>
+<li><a href="./RedGolf" class="internal" data-slug="RedGolf">RedGolf</a></li>
+<li><a href="./RedHotel,-TAG-22" class="internal alias" data-slug="RedHotel,-TAG-22">RedHotel, TAG-22</a></li>
+<li><a href="./ResumeLooters" class="internal" data-slug="ResumeLooters">ResumeLooters</a></li>
+<li><a href="./Retefe-Gang,-Operation-Emmental" class="internal alias" data-slug="Retefe-Gang,-Operation-Emmental">Retefe Gang, Operation Emmental</a></li>
+<li><a href="./RevengeHotels" class="internal" data-slug="RevengeHotels">RevengeHotels</a></li>
+<li><a href="./Riddle-Spider" class="internal alias" data-slug="Riddle-Spider">Riddle Spider</a></li>
+<li><a href="./Roaming-Mantis" class="internal alias" data-slug="Roaming-Mantis">Roaming Mantis</a></li>
+<li><a href="./Roaming-Tiger" class="internal alias" data-slug="Roaming-Tiger">Roaming Tiger</a></li>
+<li><a href="./Rocke,-Iron-Group" class="internal alias" data-slug="Rocke,-Iron-Group">Rocke, Iron Group</a></li>
+<li><a href="./Rocket-Kitten,-Newscaster,-NewsBeef" class="internal alias" data-slug="Rocket-Kitten,-Newscaster,-NewsBeef">Rocket Kitten, Newscaster, NewsBeef</a></li>
+<li><a href="./Sabre-Panda" class="internal alias" data-slug="Sabre-Panda">Sabre Panda</a></li>
+<li><a href="./Safe" class="internal" data-slug="Safe">Safe</a></li>
+<li><a href="./SaintBear,-Lorec53" class="internal alias" data-slug="SaintBear,-Lorec53">SaintBear, Lorec53</a></li>
+<li><a href="./Salt-Typhoon,-GhostEmperor" class="internal alias" data-slug="Salt-Typhoon,-GhostEmperor">Salt Typhoon, GhostEmperor</a></li>
+<li><a href="./Salty-Spider" class="internal alias" data-slug="Salty-Spider">Salty Spider</a></li>
+<li><a href="./Samurai-Panda" class="internal alias" data-slug="Samurai-Panda">Samurai Panda</a></li>
+<li><a href="./SandCat" class="internal" data-slug="SandCat">SandCat</a></li>
+<li><a href="./Sandman" class="internal" data-slug="Sandman">Sandman</a></li>
+<li><a href="./Sandworm-Team,-Iron-Viking,-Voodoo-Bear" class="internal alias" data-slug="Sandworm-Team,-Iron-Viking,-Voodoo-Bear">Sandworm Team, Iron Viking, Voodoo Bear</a></li>
+<li><a href="./Scarab" class="internal" data-slug="Scarab">Scarab</a></li>
+<li><a href="./Scarlet-Mimic" class="internal alias" data-slug="Scarlet-Mimic">Scarlet Mimic</a></li>
+<li><a href="./Scattered-Spider" class="internal alias" data-slug="Scattered-Spider">Scattered Spider</a></li>
+<li><a href="./Scully-Spider,-TA547" class="internal alias" data-slug="Scully-Spider,-TA547">Scully Spider, TA547</a></li>
+<li><a href="./Sea-Turtle" class="internal alias" data-slug="Sea-Turtle">Sea Turtle</a></li>
+<li><a href="./Shadow-Academy" class="internal alias" data-slug="Shadow-Academy">Shadow Academy</a></li>
+<li><a href="./Shadow-Brokers" class="internal alias" data-slug="Shadow-Brokers">Shadow Brokers</a></li>
+<li><a href="./Shadow-Network" class="internal alias" data-slug="Shadow-Network">Shadow Network</a></li>
+<li><a href="./ShaggyPanther" class="internal" data-slug="ShaggyPanther">ShaggyPanther</a></li>
+<li><a href="./Shark-Spider" class="internal alias" data-slug="Shark-Spider">Shark Spider</a></li>
+<li><a href="./SharpPanda,-Sharp-Dragon" class="internal alias" data-slug="SharpPanda,-Sharp-Dragon">SharpPanda, Sharp Dragon</a></li>
+<li><a href="./ShinyHunters" class="internal" data-slug="ShinyHunters">ShinyHunters</a></li>
+<li><a href="./ShroudedSnooper" class="internal" data-slug="ShroudedSnooper">ShroudedSnooper</a></li>
+<li><a href="./SideCopy" class="internal" data-slug="SideCopy">SideCopy</a></li>
+<li><a href="./SideWinder,-Rattlesnake" class="internal alias" data-slug="SideWinder,-Rattlesnake">SideWinder, Rattlesnake</a></li>
+<li><a href="./Siesta" class="internal" data-slug="Siesta">Siesta</a></li>
+<li><a href="./Silence,-Contract-Crew" class="internal alias" data-slug="Silence,-Contract-Crew">Silence, Contract Crew</a></li>
+<li><a href="./Sima" class="internal" data-slug="Sima">Sima</a></li>
+<li><a href="./Singing-Spider" class="internal alias" data-slug="Singing-Spider">Singing Spider</a></li>
+<li><a href="./Slingshot" class="internal" data-slug="Slingshot">Slingshot</a></li>
+<li><a href="./Smoky-Spider" class="internal alias" data-slug="Smoky-Spider">Smoky Spider</a></li>
+<li><a href="./Snake-Wine" class="internal alias" data-slug="Snake-Wine">Snake Wine</a></li>
+<li><a href="./Snowglobe,-Animal-Farm" class="internal alias" data-slug="Snowglobe,-Animal-Farm">Snowglobe, Animal Farm</a></li>
+<li><a href="./Sofacy,-APT-28,-Fancy-Bear,-Sednit" class="internal alias" data-slug="Sofacy,-APT-28,-Fancy-Bear,-Sednit">Sofacy, APT 28, Fancy Bear, Sednit</a></li>
+<li><a href="./Solar-Spider" class="internal alias" data-slug="Solar-Spider">Solar Spider</a></li>
+<li><a href="./Sowbug" class="internal" data-slug="Sowbug">Sowbug</a></li>
+<li><a href="./Space-Pirates" class="internal alias" data-slug="Space-Pirates">Space Pirates</a></li>
+<li><a href="./Sphinx" class="internal" data-slug="Sphinx">Sphinx</a></li>
+<li><a href="./Spicy-Panda" class="internal alias" data-slug="Spicy-Panda">Spicy Panda</a></li>
+<li><a href="./Sprite-Spider,-Gold-Dupont" class="internal alias" data-slug="Sprite-Spider,-Gold-Dupont">Sprite Spider, Gold Dupont</a></li>
+<li><a href="./Stealth-Falcon,-FruityArmor" class="internal alias" data-slug="Stealth-Falcon,-FruityArmor">Stealth Falcon, FruityArmor</a></li>
+<li><a href="./Stone-Panda,-APT-10,-menuPass" class="internal alias" data-slug="Stone-Panda,-APT-10,-menuPass">Stone Panda, APT 10, menuPass</a></li>
+<li><a href="./Storm-0558" class="internal" data-slug="Storm-0558">Storm-0558</a></li>
+<li><a href="./Strider,-ProjectSauron" class="internal alias" data-slug="Strider,-ProjectSauron">Strider, ProjectSauron</a></li>
+<li><a href="./Suckfly" class="internal" data-slug="Suckfly">Suckfly</a></li>
+<li><a href="./SunCrypt-Gang" class="internal alias" data-slug="SunCrypt-Gang">SunCrypt Gang</a></li>
+<li><a href="./Sweed" class="internal" data-slug="Sweed">Sweed</a></li>
+<li><a href="./Syrian-Electronic-Army-(SEA),-Deadeye-Jackal" class="internal alias" data-slug="Syrian-Electronic-Army-(SEA),-Deadeye-Jackal">Syrian Electronic Army (SEA), Deadeye Jackal</a></li>
+<li><a href="./TA2101,-Maze-Team" class="internal alias" data-slug="TA2101,-Maze-Team">TA2101, Maze Team</a></li>
+<li><a href="./TA2541" class="internal" data-slug="TA2541">TA2541</a></li>
+<li><a href="./TA2552" class="internal" data-slug="TA2552">TA2552</a></li>
+<li><a href="./TA2722" class="internal" data-slug="TA2722">TA2722</a></li>
+<li><a href="./TA413" class="internal" data-slug="TA413">TA413</a></li>
+<li><a href="./TA428" class="internal" data-slug="TA428">TA428</a></li>
+<li><a href="./TA455,-Smoke-Sandstorm" class="internal alias" data-slug="TA455,-Smoke-Sandstorm">TA455, Smoke Sandstorm</a></li>
+<li><a href="./TA459" class="internal" data-slug="TA459">TA459</a></li>
+<li><a href="./TA505,-Graceful-Spider,-Gold-Evergreen" class="internal alias" data-slug="TA505,-Graceful-Spider,-Gold-Evergreen">TA505, Graceful Spider, Gold Evergreen</a></li>
+<li><a href="./TA511" class="internal" data-slug="TA511">TA511</a></li>
+<li><a href="./TA516" class="internal" data-slug="TA516">TA516</a></li>
+<li><a href="./TA530" class="internal" data-slug="TA530">TA530</a></li>
+<li><a href="./TA551,-Shathak" class="internal alias" data-slug="TA551,-Shathak">TA551, Shathak</a></li>
+<li><a href="./TA554" class="internal" data-slug="TA554">TA554</a></li>
+<li><a href="./TA555" class="internal" data-slug="TA555">TA555</a></li>
+<li><a href="./TA558" class="internal" data-slug="TA558">TA558</a></li>
+<li><a href="./TAG-100" class="internal" data-slug="TAG-100">TAG-100</a></li>
+<li><a href="./TAG-28" class="internal" data-slug="TAG-28">TAG-28</a></li>
+<li><a href="./TAG-38" class="internal" data-slug="TAG-38">TAG-38</a></li>
+<li><a href="./TEMP.Veles" class="internal" data-slug="TEMP.Veles">TEMP.Veles</a></li>
+<li><a href="./TIDRONE" class="internal" data-slug="TIDRONE">TIDRONE</a></li>
+<li><a href="./Taidoor" class="internal" data-slug="Taidoor">Taidoor</a></li>
+<li><a href="./TaskMasters" class="internal" data-slug="TaskMasters">TaskMasters</a></li>
+<li><a href="./TeamSpy-Crew" class="internal alias" data-slug="TeamSpy-Crew">TeamSpy Crew</a></li>
+<li><a href="./TeleBots" class="internal" data-slug="TeleBots">TeleBots</a></li>
+<li><a href="./Temper-Panda,-admin@338" class="internal alias" data-slug="Temper-Panda,-admin@338">Temper Panda, admin@338</a></li>
+<li><a href="./Tempting-Cedar-Spyware" class="internal alias" data-slug="Tempting-Cedar-Spyware">Tempting Cedar Spyware</a></li>
+<li><a href="./Terbium" class="internal" data-slug="Terbium">Terbium</a></li>
+<li><a href="./Test-Panda" class="internal alias" data-slug="Test-Panda">Test Panda</a></li>
+<li><a href="./The-Big-Bang" class="internal alias" data-slug="The-Big-Bang">The Big Bang</a></li>
+<li><a href="./The-White-Company" class="internal alias" data-slug="The-White-Company">The White Company</a></li>
+<li><a href="./TheWizards" class="internal" data-slug="TheWizards">TheWizards</a></li>
+<li><a href="./Tiny-Spider" class="internal alias" data-slug="Tiny-Spider">Tiny Spider</a></li>
+<li><a href="./ToddyCat" class="internal" data-slug="ToddyCat">ToddyCat</a></li>
+<li><a href="./Tomiris" class="internal" data-slug="Tomiris">Tomiris</a></li>
+<li><a href="./Tonto-Team,-HartBeat,-Karma-Panda" class="internal alias" data-slug="Tonto-Team,-HartBeat,-Karma-Panda">Tonto Team, HartBeat, Karma Panda</a></li>
+<li><a href="./Tortilla" class="internal" data-slug="Tortilla">Tortilla</a></li>
+<li><a href="./Tortoiseshell,-Imperial-Kitten" class="internal alias" data-slug="Tortoiseshell,-Imperial-Kitten">Tortoiseshell, Imperial Kitten</a></li>
+<li><a href="./Toxic-Panda" class="internal alias" data-slug="Toxic-Panda">Toxic Panda</a></li>
+<li><a href="./Tracer-Kitten" class="internal alias" data-slug="Tracer-Kitten">Tracer Kitten</a></li>
+<li><a href="./Transparent-Tribe,-APT-36" class="internal alias" data-slug="Transparent-Tribe,-APT-36">Transparent Tribe, APT 36</a></li>
+<li><a href="./Traveling-Spider" class="internal alias" data-slug="Traveling-Spider">Traveling Spider</a></li>
+<li><a href="./Tropic-Trooper,-Pirate-Panda,-APT-23,-KeyBoy" class="internal alias" data-slug="Tropic-Trooper,-Pirate-Panda,-APT-23,-KeyBoy">Tropic Trooper, Pirate Panda, APT 23, KeyBoy</a></li>
+<li><a href="./Tropical-Scorpius,-RomCom" class="internal alias" data-slug="Tropical-Scorpius,-RomCom">Tropical Scorpius, RomCom</a></li>
+<li><a href="./Turbine-Panda,-APT-26,-Shell-Crew,-WebMasters,-KungFu-Kittens" class="internal alias" data-slug="Turbine-Panda,-APT-26,-Shell-Crew,-WebMasters,-KungFu-Kittens">Turbine Panda, APT 26, Shell Crew, WebMasters, KungFu Kittens</a></li>
+<li><a href="./Turla,-Waterbug,-Venomous-Bear" class="internal alias" data-slug="Turla,-Waterbug,-Venomous-Bear">Turla, Waterbug, Venomous Bear</a></li>
+<li><a href="./Twisted-Panda" class="internal alias" data-slug="Twisted-Panda">Twisted Panda</a></li>
+<li><a href="./UNC1878" class="internal" data-slug="UNC1878">UNC1878</a></li>
+<li><a href="./UNC215" class="internal" data-slug="UNC215">UNC215</a></li>
+<li><a href="./UNC2447" class="internal" data-slug="UNC2447">UNC2447</a></li>
+<li><a href="./UNC2891" class="internal" data-slug="UNC2891">UNC2891</a></li>
+<li><a href="./UNC3886" class="internal" data-slug="UNC3886">UNC3886</a></li>
+<li><a href="./UNC4191" class="internal" data-slug="UNC4191">UNC4191</a></li>
+<li><a href="./UNC5221,-UTA0178" class="internal alias" data-slug="UNC5221,-UTA0178">UNC5221, UTA0178</a></li>
+<li><a href="./UNC5537" class="internal" data-slug="UNC5537">UNC5537</a></li>
+<li><a href="./UltraRank" class="internal" data-slug="UltraRank">UltraRank</a></li>
+<li><a href="./Unfading-Sea-Haze" class="internal alias" data-slug="Unfading-Sea-Haze">Unfading Sea Haze</a></li>
+<li><a href="./Union-Panda" class="internal alias" data-slug="Union-Panda">Union Panda</a></li>
+<li><a href="./Union-Spider" class="internal alias" data-slug="Union-Spider">Union Spider</a></li>
+<li><a href="./Unnamed-group-USA" class="internal alias" data-slug="Unnamed-group-USA">Unnamed group USA</a></li>
+<li><a href="./Unnamed-groups_-China" class="internal alias" data-slug="Unnamed-groups_-China">Unnamed groups_ China</a></li>
+<li><a href="./Unnamed-groups_-Iran" class="internal alias" data-slug="Unnamed-groups_-Iran">Unnamed groups_ Iran</a></li>
+<li><a href="./Unnamed-groups_-North-Korea" class="internal alias" data-slug="Unnamed-groups_-North-Korea">Unnamed groups_ North Korea</a></li>
+<li><a href="./Unnamed-groups_-Russia" class="internal alias" data-slug="Unnamed-groups_-Russia">Unnamed groups_ Russia</a></li>
+<li><a href="./Urpage" class="internal" data-slug="Urpage">Urpage</a></li>
+<li><a href="./Vault-7_8" class="internal alias" data-slug="Vault-7_8">Vault 7_8</a></li>
+<li><a href="./Velvet-Ant" class="internal alias" data-slug="Velvet-Ant">Velvet Ant</a></li>
+<li><a href="./Vendetta,-TA2719" class="internal alias" data-slug="Vendetta,-TA2719">Vendetta, TA2719</a></li>
+<li><a href="./Venom-Spider,-Golden-Chickens" class="internal alias" data-slug="Venom-Spider,-Golden-Chickens">Venom Spider, Golden Chickens</a></li>
+<li><a href="./Vicious-Panda" class="internal alias" data-slug="Vicious-Panda">Vicious Panda</a></li>
+<li><a href="./Viking-Jackal" class="internal alias" data-slug="Viking-Jackal">Viking Jackal</a></li>
+<li><a href="./Viking-Spider" class="internal alias" data-slug="Viking-Spider">Viking Spider</a></li>
+<li><a href="./Void-Arachne" class="internal alias" data-slug="Void-Arachne">Void Arachne</a></li>
+<li><a href="./Void-Balaur" class="internal alias" data-slug="Void-Balaur">Void Balaur</a></li>
+<li><a href="./Void-Blizzard" class="internal alias" data-slug="Void-Blizzard">Void Blizzard</a></li>
+<li><a href="./Volatile-Cedar" class="internal alias" data-slug="Volatile-Cedar">Volatile Cedar</a></li>
+<li><a href="./Volt-Typhoon" class="internal alias" data-slug="Volt-Typhoon">Volt Typhoon</a></li>
+<li><a href="./WIP26" class="internal" data-slug="WIP26">WIP26</a></li>
+<li><a href="./WIRTE-Group" class="internal alias" data-slug="WIRTE-Group">WIRTE Group</a></li>
+<li><a href="./Wassonite" class="internal" data-slug="Wassonite">Wassonite</a></li>
+<li><a href="./Wet-Panda" class="internal alias" data-slug="Wet-Panda">Wet Panda</a></li>
+<li><a href="./Whitefly,-Mofang" class="internal alias" data-slug="Whitefly,-Mofang">Whitefly, Mofang</a></li>
+<li><a href="./Wicked-Spider,-APT-22" class="internal alias" data-slug="Wicked-Spider,-APT-22">Wicked Spider, APT 22</a></li>
+<li><a href="./Wild-Neutron,-Butterfly,-Sphinx-Moth" class="internal alias" data-slug="Wild-Neutron,-Butterfly,-Sphinx-Moth">Wild Neutron, Butterfly, Sphinx Moth</a></li>
+<li><a href="./WildCard" class="internal" data-slug="WildCard">WildCard</a></li>
+<li><a href="./WildPressure" class="internal" data-slug="WildPressure">WildPressure</a></li>
+<li><a href="./WindShift" class="internal" data-slug="WindShift">WindShift</a></li>
+<li><a href="./Winnti-Group,-Wicked-Panda" class="internal alias" data-slug="Winnti-Group,-Wicked-Panda">Winnti Group, Wicked Panda</a></li>
+<li><a href="./Winter-Vivern" class="internal alias" data-slug="Winter-Vivern">Winter Vivern</a></li>
+<li><a href="./Wizard-Spider,-Gold-Blackburn" class="internal alias" data-slug="Wizard-Spider,-Gold-Blackburn">Wizard Spider, Gold Blackburn</a></li>
+<li><a href="./Worok" class="internal" data-slug="Worok">Worok</a></li>
+<li><a href="./XDSpy" class="internal" data-slug="XDSpy">XDSpy</a></li>
+<li><a href="./Yanbian-Gang" class="internal alias" data-slug="Yanbian-Gang">Yanbian Gang</a></li>
+<li><a href="./Yingmob" class="internal" data-slug="Yingmob">Yingmob</a></li>
+<li><a href="./YoroTrooper" class="internal" data-slug="YoroTrooper">YoroTrooper</a></li>
+<li><a href="./Zombie-Spider" class="internal alias" data-slug="Zombie-Spider">Zombie Spider</a></li>
+<li><a href="./ZooPark" class="internal" data-slug="ZooPark">ZooPark</a></li>
+<li><a href="./leetMX" class="internal" data-slug="leetMX">leetMX</a></li>
+<li><a href="./xHunt" class="internal" data-slug="xHunt">xHunt</a></li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.1</a> © 2025</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="./postscript.js" type="module"></script></html>

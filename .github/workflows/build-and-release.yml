@@ -64,66 +64,6 @@ jobs:
           zip -r obsidian-vault-${{ steps.date.outputs.date }}.zip ./output
           echo "name=obsidian-vault-${{ steps.date.outputs.date }}.zip" >> $GITHUB_OUTPUT
 
-      - name: Prepare Release Notes
-        id: prep-notes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          
-          # Use the GitHub CLI to get the URL of the zip asset from the latest release
-          echo "Fetching latest release..."
-          LATEST_RELEASE_URL=$(gh release view --json assets -q '.assets[] | select(.name | endswith(".zip")) | .url' || echo "")
-          
-          # File to store the body of the release notes
-          NOTES_FILE=release_notes.md
-          
-          if [ -z "$LATEST_RELEASE_URL" ]; then
-            echo "No previous release found. This is the initial build."
-            echo "Initial vault build. No changes to report." > $NOTES_FILE
-          else
-            echo "Previous release found. Making the new one."
-            #Turns out the diff stuff didn't work out well.. it breaks if its too big. oh well.
-            #echo "Previous release found. Downloading and generating diff..."
-            
-            # Download the asset from the last release
-            #curl -L -o old_vault.zip "$LATEST_RELEASE_URL"
-            
-            # Create directories to compare
-            #mkdir -p old_vault_unzipped new_vault_unzipped
-            
-            # Unzip both archives
-            #unzip -q old_vault.zip -d old_vault_unzipped
-            #unzip -q ${{ steps.zip.outputs.name }} -d new_vault_unzipped
-            
-            # Remove the 'data-scraped' line from all .md files before diffing
-            #echo "Temporarily removing 'data-scraped' lines for accurate diff..."
-            #find old_vault_unzipped new_vault_unzipped -type f -name "*.md" -exec sed -i '/^data-scraped:/d' {} +
-
-            # Remove index files from comparison
-            #echo "Removing index files from comparison..."
-            #find old_vault_unzipped new_vault_unzipped -type f -name "index-*.md" -delete
-            
-            # Generate the diff, ignoring the .obsidian config folder.
-            # Use '|| true' to ensure the workflow doesn't fail if diff finds changes (which is expected).
-            #DIFF_CONTENT=$(diff -urN -x ".obsidian" old_vault_unzipped/output new_vault_unzipped/output || true)
-            
-            # Construct the release notes
-            #echo "Changes between this week and the last release, as seen by Electronic Transactions Development Agency (ETDA) of Thailand:" > $NOTES_FILE
-            #echo "" >> $NOTES_FILE
-            #echo '```diff' >> $NOTES_FILE
-            #if [ -z "$DIFF_CONTENT" ]; then
-            #  echo "No content changes detected." >> $NOTES_FILE
-            #else
-            #  # Use a here-string to avoid issues with special characters in the diff content
-            #  echo "$DIFF_CONTENT" >> $NOTES_FILE
-            #fi
-            #echo '```' >> $NOTES_FILE
-            echo "New release" >> $NOTES_FILE
-          fi
-          
-          echo "Release notes prepared:"
-          cat $NOTES_FILE
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
@@ -133,7 +73,7 @@ jobs:
           # The name of the release in the GitHub UI
           name: Obsidian Vault Build - ${{ steps.date.outputs.date }}
           # Use the generated diff file as the body of the release
-          body_path: release_notes.md
+          body: "Automated release with latest changes."
           # The files to upload as assets to the release
           files: |
             ${{ steps.zip.outputs.name }}
